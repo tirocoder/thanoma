@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thanoma", "Thanoma\Thanoma.csproj", "{F21DABBC-6F1E-4638-8212-1AB45CA1DCBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F21DABBC-6F1E-4638-8212-1AB45CA1DCBB}.Debug|x86.ActiveCfg = Debug|x86
+		{F21DABBC-6F1E-4638-8212-1AB45CA1DCBB}.Debug|x86.Build.0 = Debug|x86
+		{F21DABBC-6F1E-4638-8212-1AB45CA1DCBB}.Release|x86.ActiveCfg = Release|x86
+		{F21DABBC-6F1E-4638-8212-1AB45CA1DCBB}.Release|x86.Build.0 = Release|x86
+		{30EB907F-76F8-46E4-9C1B-FD05A237A413}.Debug|x86.ActiveCfg = Debug|x86
+		{30EB907F-76F8-46E4-9C1B-FD05A237A413}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

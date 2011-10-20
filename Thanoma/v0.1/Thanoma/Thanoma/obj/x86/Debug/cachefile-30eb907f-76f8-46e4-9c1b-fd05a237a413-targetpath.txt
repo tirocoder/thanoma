@@ -1,0 +1,9 @@
+Content\bg1.xnb
+Content\000.xnb
+Content\100.xnb
+Content\101.xnb
+Content\player1.xnb
+Content\player1b.xnb
+Content\200.xnb
+Content\201.xnb
+Content\102.xnb
