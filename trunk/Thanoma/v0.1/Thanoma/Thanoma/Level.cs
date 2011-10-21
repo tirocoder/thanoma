@@ -17,7 +17,7 @@ namespace Thanoma
     {
         /* START: properties */
 
-        int[,] _tilemap = new int[5, VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH];
+        int[,] _tilemap = new int[16, VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH];
 
         /* END: properties */
 
@@ -27,12 +27,27 @@ namespace Thanoma
             Random rd = new Random();
             for (int i2 = 0; i2 < VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH; i2++)
             {
-                _tilemap[0, i2] = 101;
-                _tilemap[1, i2] = 100;
-                _tilemap[2, i2] = (rd.Next(200, 202) % 2 == 0) ? 100 : 102;
-                _tilemap[3, i2] = rd.Next(200, 202);
-                _tilemap[4, i2] = 200;
+                _tilemap[0, i2] = 0;
+                _tilemap[1, i2] = 0;
+                _tilemap[2, i2] = 0;
+                _tilemap[3, i2] = 0;
+                _tilemap[4, i2] = 0;
+                _tilemap[5, i2] = 0;
+                _tilemap[6, i2] = 0;
+                _tilemap[7, i2] = 0;
+                _tilemap[8, i2] = 0;
+                _tilemap[9, i2] = 0;
+                _tilemap[10, i2] = 0;
+                _tilemap[11, i2] = 101;
+                _tilemap[12, i2] = 100;
+                _tilemap[13, i2] = (rd.Next(200, 202) % 2 == 0) ? 100 : 102;
+                _tilemap[14, i2] = rd.Next(200, 202);
+                _tilemap[15, i2] = 200;
             }
+            _tilemap[11, 19] = 0;
+            _tilemap[11, 20] = 0; 
+            _tilemap[11, 78] = 0;
+            _tilemap[11, 79] = 0; 
         }
 
         /* START: methods */
@@ -41,32 +56,30 @@ namespace Thanoma
         {
             for (int i = 0; i < VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH; i++)
             {
-                Brick brick = new Brick(cm, 11 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[0,i]);
+                Brick brick = new Brick(cm, 11 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[11,i]);
                 sb.Draw(brick._texture, brick._rect, Color.White);
-                Brick brick2 = new Brick(cm, 12 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[1, i]);
+                Brick brick2 = new Brick(cm, 12 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[12, i]);
                 sb.Draw(brick2._texture, brick2._rect, Color.White);
-                Brick brick3 = new Brick(cm, 13 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[2, i]);
+                Brick brick3 = new Brick(cm, 13 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[13, i]);
                 sb.Draw(brick3._texture, brick3._rect, Color.White);
-                Brick brick4 = new Brick(cm, 14 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[3, i]);
+                Brick brick4 = new Brick(cm, 14 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[14, i]);
                 sb.Draw(brick4._texture, brick4._rect, Color.White);
-                Brick brick5 = new Brick(cm, 15 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[4, i]);
+                Brick brick5 = new Brick(cm, 15 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[15, i]);
                 sb.Draw(brick5._texture, brick5._rect, Color.White);
             }
+        }
 
-
-            //for (int i = 0; i < VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH; i++)
-            //{
-            //    Brick brick = new Brick(ref cm, 11 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, 101);
-            //    sb.Draw(brick._texture, brick._rect, Color.White);
-            //    Brick brick2 = new Brick(ref cm, 12 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, 100);
-            //    sb.Draw(brick2._texture, brick2._rect, Color.White);
-            //    Brick brick3 = new Brick(ref cm, 13 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, 100);
-            //    sb.Draw(brick3._texture, brick3._rect, Color.White);
-            //    Brick brick4 = new Brick(ref cm, 14 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, 200);
-            //    sb.Draw(brick4._texture, brick4._rect, Color.White);
-            //    Brick brick5 = new Brick(ref cm, 15 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, 200);
-            //    sb.Draw(brick5._texture, brick5._rect, Color.White);
-            //}
+        public bool IsBrickThere(int brick_x, int brick_y)
+        {
+            try
+            {
+                if (_tilemap[brick_y, brick_x] != 0) return true;
+                else return false;
+            }
+            catch (Exception ex)
+            {
+                return true;
+            }
         }
         
         /* END: methods */
@@ -74,10 +87,6 @@ namespace Thanoma
 
     public class Brick
     {
-        //int _width;
-        //int _height;
-        //int _top;
-        //int _left;
         int _type;
         public Texture2D _texture;
         public Rectangle _rect;

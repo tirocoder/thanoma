@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\bg1.xnb</Output>
-      <Time>2011-10-16T20:25:36.3764046+02:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\bg1.xnb</Output>
+      <Time>2011-10-20T22:51:33.8949987+02:00</Time>
     </Item>
     <Item>
       <Source>000.png</Source>
@@ -16,26 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\000.xnb</Output>
-      <Time>2011-10-17T19:56:22.799228+02:00</Time>
-    </Item>
-    <Item>
-      <Source>100.png</Source>
-      <Name>100</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\100.xnb</Output>
-      <Time>2011-10-19T21:50:25.9509165+02:00</Time>
-    </Item>
-    <Item>
-      <Source>101.png</Source>
-      <Name>101</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\101.xnb</Output>
-      <Time>2011-10-19T21:50:29.6431276+02:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\000.xnb</Output>
+      <Time>2011-10-20T22:51:33.8799979+02:00</Time>
     </Item>
     <Item>
       <Source>player1.png</Source>
@@ -43,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player1.xnb</Output>
-      <Time>2011-10-19T20:07:59.7507658+02:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player1.xnb</Output>
+      <Time>2011-10-20T22:51:33.8779978+02:00</Time>
     </Item>
     <Item>
       <Source>player1b.png</Source>
@@ -52,8 +34,26 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player1b.xnb</Output>
-      <Time>2011-10-19T20:23:12.4185755+02:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player1b.xnb</Output>
+      <Time>2011-10-20T22:51:33.881998+02:00</Time>
+    </Item>
+    <Item>
+      <Source>100.png</Source>
+      <Name>100</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\100.xnb</Output>
+      <Time>2011-10-20T22:51:33.8839981+02:00</Time>
+    </Item>
+    <Item>
+      <Source>101.png</Source>
+      <Name>101</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\101.xnb</Output>
+      <Time>2011-10-20T22:51:33.8859982+02:00</Time>
     </Item>
     <Item>
       <Source>200.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\200.xnb</Output>
-      <Time>2011-10-19T21:53:32.5545896+02:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\200.xnb</Output>
+      <Time>2011-10-20T22:51:33.8889984+02:00</Time>
     </Item>
     <Item>
       <Source>201.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\201.xnb</Output>
-      <Time>2011-10-19T21:59:54.7194482+02:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\201.xnb</Output>
+      <Time>2011-10-20T22:51:33.8929986+02:00</Time>
     </Item>
     <Item>
       <Source>102.png</Source>
@@ -79,18 +79,18 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\102.xnb</Output>
-      <Time>2011-10-20T22:39:31.5706841+02:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\102.xnb</Output>
+      <Time>2011-10-20T22:51:33.8909985+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\beemwe\projects\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

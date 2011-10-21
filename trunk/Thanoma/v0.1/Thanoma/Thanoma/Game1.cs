@@ -70,7 +70,7 @@ namespace Thanoma
             rect_bg.Width = bg.Width;
             rect_bg.Height = bg.Height;
 
-            test_player._texture = Content.Load<Texture2D>("player1");
+            //test_player._texture = Content.Load<Texture2D>("player1");
             
             // TODO: use this.Content to load your game content here
         }
@@ -94,37 +94,15 @@ namespace Thanoma
             // Allows the game to exit
             if (Keyboard.GetState().IsKeyDown(Keys.Escape) == true)
                 this.Exit();
-            
-            if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
-            {
-                //rect_bg.X -= 2;
-                //start_x -= 2;
-                start_x2 += 2;
-                test_player._rect.X += 2;
-                
-            }
-            if ((Keyboard.GetState().IsKeyDown(Keys.Right) == true) && (Keyboard.GetState().IsKeyDown(Keys.Space) == true))
-            {
-                //rect_bg.X -= 3;
-                //start_x -= 4;
-                start_x2 += 3;
-                test_player._rect.X += 3;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
-            {
-                //rect_bg.X += 2;
-                //start_x += 2;
-                start_x2 -= 2;
-                test_player._rect.X -= 2;
-            }
 
             // TODO: Add your update logic here
+            ContentManager cm = Content;
+            test_player.Update(cm, gameTime, test_level, spriteBatch);
             
-            this.camera.Update(gameTime, new Vector2(start_x2, 0));
+            this.camera.Update(gameTime, new Vector2(test_player._rect.X - VaC.WINDOW_WIDTH / 2, 0));
             base.Update(gameTime);
         }
 
-        bool drawn = true;
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
@@ -148,7 +126,7 @@ namespace Thanoma
 
             // TEST PLAYER
             //Player test_player = new Player(ref cm, 0);
-            PlayMoveAnimation(test_player, gameTime);
+            //PlayMoveAnimation(test_player, gameTime);
             spriteBatch.Draw(test_player._texture, test_player._rect, Color.White);
             
             spriteBatch.End();
@@ -158,27 +136,6 @@ namespace Thanoma
             
             base.Draw(gameTime);
         }
-        bool change = false;
-        TimeSpan ticks = new TimeSpan(0);
-        public void PlayMoveAnimation(Player player, GameTime gt)
-        {
-            if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
-            {
-                if (gt.TotalGameTime > ticks)
-                {
-                    if (change == true)
-                    {
-                        player._texture = Content.Load<Texture2D>("player1");
-                        change = false;
-                    }
-                    else
-                    {
-                        player._texture = Content.Load<Texture2D>("player1b");
-                        change = true;
-                    }
-                    ticks = gt.TotalGameTime + new TimeSpan(0, 0, 0, 0, 200);
-                }
-            }
-        }
+        
     }
 }
