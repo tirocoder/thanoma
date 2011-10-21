@@ -44,6 +44,10 @@ namespace Thanoma
                 _tilemap[14, i2] = rd.Next(200, 202);
                 _tilemap[15, i2] = 200;
             }
+            _tilemap[8, 7] = 100;
+            _tilemap[12, 18] = 0;
+            _tilemap[12, 19] = 0;
+            _tilemap[11, 18] = 0;
             _tilemap[11, 19] = 0;
             _tilemap[11, 20] = 0; 
             _tilemap[11, 78] = 0;
@@ -66,10 +70,51 @@ namespace Thanoma
                 sb.Draw(brick4._texture, brick4._rect, Color.White);
                 Brick brick5 = new Brick(cm, 15 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[15, i]);
                 sb.Draw(brick5._texture, brick5._rect, Color.White);
+                Brick brick6 = new Brick(cm, 8 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[8, i]);
+                sb.Draw(brick6._texture, brick6._rect, Color.White);
             }
         }
 
-        public bool IsBrickThere(int brick_x, int brick_y)
+        public bool IsBrickUnderMe(int brick_x, int brick_y)
+        {
+            try
+            {
+                if (_tilemap[brick_y+1, brick_x] != 0) return true;
+                else return false;
+            }
+            catch (Exception ex)
+            {
+                return true;
+            }
+        }
+
+        public bool IsBrickAboveMe(int brick_x, int brick_y)
+        {
+            try
+            {
+                if (_tilemap[brick_y - 1, brick_x] != 0) return true;
+                else return false;
+            }
+            catch (Exception ex)
+            {
+                return true;
+            }
+        }
+
+        public bool IsBrickToMyRight(int brick_x, int brick_y)
+        {
+            try
+            {
+                if (_tilemap[brick_y, brick_x + 1] != 0) return true;
+                else return false;
+            }
+            catch (Exception ex)
+            {
+                return true;
+            }
+        }
+
+        public bool IsBrickToMyLeft(int brick_x, int brick_y)
         {
             try
             {
