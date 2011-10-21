@@ -35,8 +35,8 @@ namespace Thanoma
             _x = VaC.WINDOW_WIDTH / 2;
             _y = VaC.WINDOW_HEIGHT - VaC.BRICK_HEIGHT * 6;
 
-            _rect.Width = VaC.BRICK_WIDTH;
-            _rect.Height = VaC.BRICK_HEIGHT;
+            _rect.Width = VaC.PLAYER_WIDTH;
+            _rect.Height = VaC.PLAYER_HEIGHT;
             _rect.X = VaC.WINDOW_WIDTH / 2;
             _rect.Y = VaC.WINDOW_HEIGHT - VaC.BRICK_HEIGHT * 6;
 
@@ -44,11 +44,11 @@ namespace Thanoma
             {
                 case 0:
                     // test guy
-                    _texture = cm.Load<Texture2D>("player1");
+                    _texture = cm.Load<Texture2D>("player_right1");
                     break;
                 default:
                     // test guy
-                    _texture = cm.Load<Texture2D>("player1");
+                    _texture = cm.Load<Texture2D>("player_right1");
                     break;
             }
         }
@@ -62,11 +62,11 @@ namespace Thanoma
             {
                 case 'l':
                     // move left
-                    if(level.IsBrickThere(_brick_x - 1, _brick_y) == false) _x -= Convert.ToInt32(Math.Round(2 * speed, MidpointRounding.AwayFromZero));
+                    if (level.IsBrickToMyLeft(_brick_x, _brick_y) == false) _x -= Convert.ToInt32(Math.Round(2 * speed, MidpointRounding.AwayFromZero));
                     break;
                 case 'r':
                     // move right
-                    if (level.IsBrickThere(_brick_x + 1, _brick_y) == false) _x += Convert.ToInt32(Math.Round(2 * speed, MidpointRounding.AwayFromZero));
+                    if (level.IsBrickToMyRight(_brick_x, _brick_y) == false) _x += Convert.ToInt32(Math.Round(2 * speed, MidpointRounding.AwayFromZero));
                     break;
             }
         }
@@ -81,12 +81,29 @@ namespace Thanoma
                 {
                     if (change == true)
                     {
-                        _texture = cm.Load<Texture2D>("player1");
+                        _texture = cm.Load<Texture2D>("player_right1");
                         change = false;
                     }
                     else
                     {
-                        _texture = cm.Load<Texture2D>("player1b");
+                        _texture = cm.Load<Texture2D>("player_right2");
+                        change = true;
+                    }
+                    ticks = gt.TotalGameTime + new TimeSpan(0, 0, 0, 0, Convert.ToInt32(200 / _speed));
+                }
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.A) == true)
+            {
+                if (gt.TotalGameTime > ticks)
+                {
+                    if (change == true)
+                    {
+                        _texture = cm.Load<Texture2D>("player_left1");
+                        change = false;
+                    }
+                    else
+                    {
+                        _texture = cm.Load<Texture2D>("player_left2");
                         change = true;
                     }
                     ticks = gt.TotalGameTime + new TimeSpan(0, 0, 0, 0, Convert.ToInt32(200 / _speed));
@@ -94,8 +111,22 @@ namespace Thanoma
             }
         }
 
-        DateTime dt = new DateTime();
-        
+        int start_y;
+        bool is_jumping = false;
+        public void JumpPlayer(Level level)
+        {
+            if (level.IsBrickAboveMe(_brick_x, _brick_y) == false)
+            {
+                if (_y >= start_y - 56)
+                {
+                    is_jumping = true;
+                    _y -= 10;
+                }
+                else is_jumping = false;
+            }
+        }
+
+        //DateTime dt = new DateTime();
         public void FallDown()
         {
             //if (gt.TotalGameTime > ticks)
@@ -105,20 +136,23 @@ namespace Thanoma
             }
         }
 
+        double val = 0.0;
         public void FollowGravity(Level level)
         {
-            if(level.IsBrickThere(_brick_x, _brick_y + 1) == false)
+            if (level.IsBrickUnderMe(_brick_x, _brick_y) == false)
             {
                 // let player fall down (if not on ground)
-                _y += 2;
+                _y += 1 + (int)val;
+                val += 0.3;
             }
+            else val = 0.0;
         }
 
 
         public void DeclareRectangle()
         {
-            _rect.Width = VaC.BRICK_WIDTH;
-            _rect.Height = VaC.BRICK_HEIGHT;
+            _rect.Width = VaC.PLAYER_WIDTH;
+            _rect.Height = VaC.PLAYER_HEIGHT;
             _rect.X = _x;
             _rect.Y = _y;
         }
@@ -141,9 +175,19 @@ namespace Thanoma
             {
                 MovePlayer(level, 'r', 1.3);
             }
+            if (Keyboard.GetState().IsKeyDown(Keys.J) == true)
+            {
+                // gerade nach oben springen
+                if (is_jumping == false)
+                {
+                    start_y = _y;
+                }
+                JumpPlayer(level);
+            }
+
             PlayMoveAnimation(cm, gametime);
-            _brick_x = (int)Math.Round((double)_x / VaC.BRICK_WIDTH, MidpointRounding.ToEven);
-            _brick_y = (int)Math.Round((double)_y / VaC.BRICK_HEIGHT, MidpointRounding.ToEven);
+            _brick_x = (int)((double)_x / VaC.PLAYER_WIDTH);
+            _brick_y = (int)((double)_y / VaC.PLAYER_HEIGHT);
             FollowGravity(level);
             DeclareRectangle();
         }
