@@ -66,7 +66,7 @@ namespace Thanoma
                     break;
                 case 'r':
                     // move right
-                    if (level.IsBrickToMyRight(_brick_x, _brick_y) == false) _x += Convert.ToInt32(Math.Round(2 * speed, MidpointRounding.AwayFromZero));
+                    if (level.IsBrickToMyRight(_brick_x, _brick_y, _y) == false) _x += Convert.ToInt32(Math.Round(2 * speed, MidpointRounding.AwayFromZero));
                     break;
             }
         }
@@ -115,7 +115,7 @@ namespace Thanoma
         bool is_jumping = false;
         public void JumpPlayer(Level level)
         {
-            if (level.IsBrickAboveMe(_brick_x, _brick_y) == false)
+            if (level.IsBrickAboveMe(_brick_x, _brick_y, _x) == false)
             {
                 if (_y >= start_y - 56)
                 {
@@ -139,11 +139,16 @@ namespace Thanoma
         double val = 0.0;
         public void FollowGravity(Level level)
         {
-            if (level.IsBrickUnderMe(_brick_x, _brick_y, _x) == false)
+            int value = level.IsBrickUnderMe(_brick_x, _brick_y, _x, _y);
+            if ( (value != 0) && (1 +(int)val <= value))
             {
                 // let player fall down (if not on ground)
-                _y += 1 + (int)val;
+                _y += 2 + (int)val;
                 val += 0.3;
+            }
+            else if ((value != 0) && (1 + (int)val >= value))
+            {
+                _y += value;
             }
             else val = 0.0;
         }
