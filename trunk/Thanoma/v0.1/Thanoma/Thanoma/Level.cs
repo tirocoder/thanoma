@@ -44,12 +44,15 @@ namespace Thanoma
                 _tilemap[14, i2] = rd.Next(200, 202);
                 _tilemap[15, i2] = 200;
             }
+            // TEST
             _tilemap[8, 7] = 100;
             _tilemap[12, 18] = 0;
             _tilemap[12, 19] = 0;
             _tilemap[11, 18] = 0;
             _tilemap[11, 19] = 0;
-            _tilemap[11, 20] = 0; 
+            _tilemap[11, 20] = 0;
+            _tilemap[10, 21] = 200;
+            _tilemap[9, 22] = 200;
             _tilemap[11, 78] = 0;
             _tilemap[11, 79] = 0; 
         }
@@ -60,6 +63,12 @@ namespace Thanoma
         {
             for (int i = 0; i < VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH; i++)
             {
+                Brick brick7 = new Brick(cm, 9 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[9, i]);
+                sb.Draw(brick7._texture, brick7._rect, Color.White);
+                Brick brick8 = new Brick(cm, 10 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[10, i]);
+                sb.Draw(brick8._texture, brick8._rect, Color.White);
+                Brick brick6 = new Brick(cm, 8 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[8, i]);
+                sb.Draw(brick6._texture, brick6._rect, Color.White);
                 Brick brick = new Brick(cm, 11 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[11,i]);
                 sb.Draw(brick._texture, brick._rect, Color.White);
                 Brick brick2 = new Brick(cm, 12 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[12, i]);
@@ -70,43 +79,43 @@ namespace Thanoma
                 sb.Draw(brick4._texture, brick4._rect, Color.White);
                 Brick brick5 = new Brick(cm, 15 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[15, i]);
                 sb.Draw(brick5._texture, brick5._rect, Color.White);
-                Brick brick6 = new Brick(cm, 8 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[8, i]);
-                sb.Draw(brick6._texture, brick6._rect, Color.White);
+                
             }
         }
 
-        public bool IsBrickUnderMe(int brick_x, int brick_y, int x)
+        public int IsBrickUnderMe(int brick_x, int brick_y, int x, int y)
         {
             try
             {
-                int test = (int)(x / VaC.BRICK_WIDTH);
                 if ((_tilemap[brick_y + 1, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[brick_y + 1, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
                 {
-                    return true;
+                    return 0;
                 }
-                else return false;
-
-                /*if (_tilemap[brick_y+1, brick_x] != 0)
+                else
                 {
-                    if ((x >= brick_x * VaC.BRICK_WIDTH) && (x <= brick_x * VaC.BRICK_WIDTH + VaC.BRICK_WIDTH))
+                    int value = 0;
+                    for (int i = (int)(y / VaC.BRICK_HEIGHT) + 1; i<15 ; i++)
                     {
-                        return true;
+                        if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                        {
+                            value = i * VaC.BRICK_HEIGHT;
+                            break;
+                        }
                     }
-                    return true;
+                    return value - (y + VaC.PLAYER_HEIGHT);
                 }
-                else return false;*/
             }
             catch (Exception ex)
             {
-                return true;
+                return 0;
             }
         }
 
-        public bool IsBrickAboveMe(int brick_x, int brick_y)
+        public bool IsBrickAboveMe(int brick_x, int brick_y, int x)
         {
             try
             {
-                if (_tilemap[brick_y - 1, brick_x] != 0) return true;
+                if ((_tilemap[brick_y - 1, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[brick_y - 1, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0)) return true;
                 else return false;
             }
             catch (Exception ex)
@@ -115,10 +124,11 @@ namespace Thanoma
             }
         }
 
-        public bool IsBrickToMyRight(int brick_x, int brick_y)
+        public bool IsBrickToMyRight(int brick_x, int brick_y, int y)
         {
             try
             {
+                //if ((_tilemap[(int)(y/VaC.BRICK_HEIGHT), brick_x + 1] != 0) || (_tilemap[(int)((y + VaC.BRICK_HEIGHT)/VaC.BRICK_HEIGHT-2), brick_x + 1] != 0)) return true;
                 if (_tilemap[brick_y, brick_x + 1] != 0) return true;
                 else return false;
             }
