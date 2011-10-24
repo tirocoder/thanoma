@@ -75,12 +75,26 @@ namespace Thanoma
             }
         }
 
-        public bool IsBrickUnderMe(int brick_x, int brick_y)
+        public bool IsBrickUnderMe(int brick_x, int brick_y, int x)
         {
             try
             {
-                if (_tilemap[brick_y+1, brick_x] != 0) return true;
+                int test = (int)(x / VaC.BRICK_WIDTH);
+                if ((_tilemap[brick_y + 1, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[brick_y + 1, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                {
+                    return true;
+                }
                 else return false;
+
+                /*if (_tilemap[brick_y+1, brick_x] != 0)
+                {
+                    if ((x >= brick_x * VaC.BRICK_WIDTH) && (x <= brick_x * VaC.BRICK_WIDTH + VaC.BRICK_WIDTH))
+                    {
+                        return true;
+                    }
+                    return true;
+                }
+                else return false;*/
             }
             catch (Exception ex)
             {

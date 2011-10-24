@@ -139,7 +139,7 @@ namespace Thanoma
         double val = 0.0;
         public void FollowGravity(Level level)
         {
-            if (level.IsBrickUnderMe(_brick_x, _brick_y) == false)
+            if (level.IsBrickUnderMe(_brick_x, _brick_y, _x) == false)
             {
                 // let player fall down (if not on ground)
                 _y += 1 + (int)val;
@@ -175,7 +175,7 @@ namespace Thanoma
             {
                 MovePlayer(level, 'r', 1.3);
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.J) == true)
+            if (Keyboard.GetState().IsKeyDown(Keys.W) == true)
             {
                 // gerade nach oben springen
                 if (is_jumping == false)
@@ -186,7 +186,7 @@ namespace Thanoma
             }
 
             PlayMoveAnimation(cm, gametime);
-            _brick_x = (int)((double)_x / VaC.PLAYER_WIDTH);
+            _brick_x = (int)((double)_x  / VaC.PLAYER_WIDTH);
             _brick_y = (int)((double)_y / VaC.PLAYER_HEIGHT);
             FollowGravity(level);
             DeclareRectangle();
