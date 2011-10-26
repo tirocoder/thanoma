@@ -33,7 +33,7 @@ namespace Thanoma
             _direction = 'r';
 
             _x = VaC.WINDOW_WIDTH / 2;
-            _y = VaC.WINDOW_HEIGHT - VaC.BRICK_HEIGHT * 6;
+            _y = VaC.WINDOW_HEIGHT - VaC.BRICK_HEIGHT * 10;
 
             _rect.Width = VaC.PLAYER_WIDTH;
             _rect.Height = VaC.PLAYER_HEIGHT;
@@ -62,11 +62,29 @@ namespace Thanoma
             {
                 case 'l':
                     // move left
-                    if (level.IsBrickToMyLeft(_brick_x, _brick_y) == false) _x -= Convert.ToInt32(Math.Round(2 * speed, MidpointRounding.AwayFromZero));
+                    int value = level.IsBrickToMyLeft(_brick_x, _brick_y, _x, _y);
+                    int delta_x = Convert.ToInt32(Math.Round(2 * speed, MidpointRounding.AwayFromZero));
+                    if ((value != 0) && (delta_x <= value))
+                    {
+                        _x -= delta_x;
+                    }
+                    else
+                    {
+                        _x -= value;
+                    }
                     break;
                 case 'r':
                     // move right
-                    if (level.IsBrickToMyRight(_brick_x, _brick_y, _y) == false) _x += Convert.ToInt32(Math.Round(2 * speed, MidpointRounding.AwayFromZero));
+                    int value2 = level.IsBrickToMyRight(_brick_x, _brick_y, _x, _y);
+                    int delta_x2 = Convert.ToInt32(Math.Round(2 * speed, MidpointRounding.AwayFromZero));
+                    if ((value2 != 0) && (delta_x2 <= value2))
+                    {
+                        _x += delta_x2;
+                    }
+                    else
+                    {
+                        _x += value2;
+                    }
                     break;
             }
         }
@@ -115,7 +133,8 @@ namespace Thanoma
         bool is_jumping = false;
         public void JumpPlayer(Level level)
         {
-            if (level.IsBrickAboveMe(_brick_x, _brick_y, _x) == false)
+            int value = level.IsBrickAboveMe(_brick_x, _brick_y, _x, _y);
+            if ((value != 0) && (10 <= value))
             {
                 if (_y >= start_y - 56)
                 {
@@ -123,6 +142,10 @@ namespace Thanoma
                     _y -= 10;
                 }
                 else is_jumping = false;
+            }
+            else //((value != 0) && (10 >= value))
+            {
+                _y += value;
             }
         }
 
@@ -140,13 +163,13 @@ namespace Thanoma
         public void FollowGravity(Level level)
         {
             int value = level.IsBrickUnderMe(_brick_x, _brick_y, _x, _y);
-            if ( (value != 0) && (1 +(int)val <= value))
+            if ((value != 0) && (2 + (int)val <= value))
             {
                 // let player fall down (if not on ground)
                 _y += 2 + (int)val;
                 val += 0.3;
             }
-            else if ((value != 0) && (1 + (int)val >= value))
+            else if ((value != 0) && (2 + (int)val >= value))
             {
                 _y += value;
             }
@@ -191,7 +214,7 @@ namespace Thanoma
             }
 
             PlayMoveAnimation(cm, gametime);
-            _brick_x = (int)((double)_x  / VaC.PLAYER_WIDTH);
+            _brick_x = (int)((double)_x / VaC.PLAYER_WIDTH);
             _brick_y = (int)((double)_y / VaC.PLAYER_HEIGHT);
             FollowGravity(level);
             DeclareRectangle();

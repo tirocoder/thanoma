@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -24,37 +24,7 @@ namespace Thanoma
         // constructor
         public Level()
         {
-            Random rd = new Random();
-            for (int i2 = 0; i2 < VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH; i2++)
-            {
-                _tilemap[0, i2] = 0;
-                _tilemap[1, i2] = 0;
-                _tilemap[2, i2] = 0;
-                _tilemap[3, i2] = 0;
-                _tilemap[4, i2] = 0;
-                _tilemap[5, i2] = 0;
-                _tilemap[6, i2] = 0;
-                _tilemap[7, i2] = 0;
-                _tilemap[8, i2] = 0;
-                _tilemap[9, i2] = 0;
-                _tilemap[10, i2] = 0;
-                _tilemap[11, i2] = 101;
-                _tilemap[12, i2] = 100;
-                _tilemap[13, i2] = (rd.Next(200, 202) % 2 == 0) ? 100 : 102;
-                _tilemap[14, i2] = rd.Next(200, 202);
-                _tilemap[15, i2] = 200;
-            }
-            // TEST
-            _tilemap[8, 7] = 100;
-            _tilemap[12, 18] = 0;
-            _tilemap[12, 19] = 0;
-            _tilemap[11, 18] = 0;
-            _tilemap[11, 19] = 0;
-            _tilemap[11, 20] = 0;
-            _tilemap[10, 21] = 200;
-            _tilemap[9, 22] = 200;
-            _tilemap[11, 78] = 0;
-            _tilemap[11, 79] = 0; 
+            LoadLevel1();
         }
 
         /* START: methods */
@@ -83,27 +53,102 @@ namespace Thanoma
             }
         }
 
+        public void LoadLevel1()
+        {
+            // read level file
+            StreamReader sr = new StreamReader(@"C:\thanoma\level1.txt");
+            string level_data = "";
+            for (int i = 0; !sr.EndOfStream; i++ )
+            {
+                level_data = sr.ReadLine();
+                string[] line = level_data.Split(' ');
+                for (int i2 = 0; i2 < line.Length; i2++)
+                {
+                    _tilemap[i, i2] = Convert.ToInt32(line[i2]);
+                }
+            }
+        }
+
+        public void DrawLevel1(ContentManager cm, SpriteBatch sb)
+        {
+            for (int i = 0; i < _tilemap.GetLength(1); i++)
+            {
+                for (int i2 = 0; i2 < 16; i2++)
+                {
+                    if (_tilemap[i2, i] != 0)
+                    {
+                        Brick brick = new Brick(cm, i2 * VaC.BRICK_HEIGHT, i * VaC.BRICK_WIDTH, _tilemap[i2, i]);
+                        sb.Draw(brick._texture, brick._rect, Color.White);
+                    }
+                }
+            }
+        }
+
         public int IsBrickUnderMe(int brick_x, int brick_y, int x, int y)
         {
             try
             {
-                if ((_tilemap[brick_y + 1, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[brick_y + 1, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                Rectangle rect_brick = new Rectangle(brick_x * VaC.BRICK_WIDTH, (brick_y + 1) * VaC.BRICK_HEIGHT - 2, VaC.BRICK_WIDTH, VaC.BRICK_HEIGHT);
+                Rectangle rect_player = new Rectangle(x, y, VaC.PLAYER_WIDTH, VaC.PLAYER_HEIGHT);
+
+                if (rect_player.Intersects(rect_brick) == true)
                 {
-                    return 0;
+                    if (_tilemap[brick_y + 1, brick_x] != 0) return 0;
+                    else
+                    {
+                        if ((rect_player.Left % VaC.BRICK_WIDTH != 0) && (_tilemap[brick_y + 1, brick_x + 1] != 0))
+                        {
+                            return 0;
+                        }
+                        int value = 0;
+                        for (int i = (int)(y / VaC.BRICK_HEIGHT) + 1; i < 15; i++)
+                        {
+                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                            {
+                                value = i * VaC.BRICK_HEIGHT;
+                                break;
+                            }
+                        }
+                        return value - (y + VaC.PLAYER_HEIGHT);
+                    }
                 }
                 else
                 {
                     int value = 0;
-                    for (int i = (int)(y / VaC.BRICK_HEIGHT) + 1; i<15 ; i++)
+                    for (int i = (int)(y / VaC.BRICK_HEIGHT) + 1; i < 15; i++)
                     {
-                        if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                        if (rect_player.Left % VaC.BRICK_WIDTH != 0)
                         {
-                            value = i * VaC.BRICK_HEIGHT;
-                            break;
+                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                            {
+                                value = i * VaC.BRICK_HEIGHT;
+                                break;
+                            }
                         }
                     }
                     return value - (y + VaC.PLAYER_HEIGHT);
                 }
+
+
+
+
+                //if ((_tilemap[brick_y + 1, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[brick_y + 1, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                //{
+                //    return 0;
+                //}
+                //else
+                //{
+                //    int value = 0;
+                //    for (int i = (int)(y / VaC.BRICK_HEIGHT) + 1; i<15 ; i++)
+                //    {
+                //        if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                //        {
+                //            value = i * VaC.BRICK_HEIGHT;
+                //            break;
+                //        }
+                //    }
+                //    return value - (y + VaC.PLAYER_HEIGHT);
+                //}
             }
             catch (Exception ex)
             {
@@ -111,43 +156,117 @@ namespace Thanoma
             }
         }
 
-        public bool IsBrickAboveMe(int brick_x, int brick_y, int x)
+        public int IsBrickAboveMe(int brick_x, int brick_y, int x, int y)
         {
             try
             {
-                if ((_tilemap[brick_y - 1, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[brick_y - 1, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0)) return true;
-                else return false;
+                Rectangle rect_brick = new Rectangle(brick_x * VaC.BRICK_WIDTH, (brick_y - 1) * VaC.BRICK_HEIGHT, VaC.BRICK_WIDTH, VaC.BRICK_HEIGHT);
+                Rectangle rect_player = new Rectangle(x, y, VaC.PLAYER_WIDTH, VaC.PLAYER_HEIGHT);
+
+                if (rect_player.Intersects(rect_brick) == true)
+                {
+                    if (_tilemap[brick_y - 1, brick_x] != 0) return 0;
+                    else
+                    {
+                        if ((rect_player.Left % VaC.BRICK_WIDTH != 0) && (_tilemap[brick_y - 1, brick_x + 1] != 0))
+                        {
+                            return 0;
+                        }
+                        int value = 0;
+                        for (int i = (int)(y / VaC.BRICK_HEIGHT) - 1; i > 0; i--)
+                        {
+                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                            {
+                                value = i * VaC.BRICK_HEIGHT;
+                                break;
+                            }
+                        }
+                        return y - (value + VaC.BRICK_HEIGHT);
+                    }
+                }
+                else
+                {
+                    int value = 0;
+                    for (int i = (int)(y / VaC.BRICK_HEIGHT) - 1; i > 0; i--)
+                    {
+                        if (rect_player.Left % VaC.BRICK_WIDTH != 0)
+                        {
+                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                            {
+                                value = i * VaC.BRICK_HEIGHT;
+                                break;
+                            }
+                        }
+                    }
+                    return y - (value + VaC.BRICK_HEIGHT);
+                }
+
+
+
+
+                //if ((_tilemap[brick_y, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[brick_y, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                //{
+                //    return 0;
+                //}
+                //else
+                //{
+                //    int value = 0;
+                //    for (int i = (int)(y / VaC.BRICK_HEIGHT) - 1; i > 0; i--)
+                //    {
+                //        if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                //        {
+                //            value = i * VaC.BRICK_HEIGHT + VaC.BRICK_HEIGHT;
+                //            break;
+                //        }
+                //    }
+                //    return (y + VaC.PLAYER_HEIGHT) - value;
+                //}
             }
             catch (Exception ex)
             {
-                return true;
+                return 0;
+            }
+        }
+        // NEXT STEP
+        public int IsBrickToMyRight(int brick_x, int brick_y, int x, int y)
+        {
+            try
+            {
+                int pixels = (brick_x + 1) * VaC.BRICK_WIDTH - x - VaC.PLAYER_WIDTH;    // horizontal distance to next brick
+                if((pixels<3)&&(_tilemap[brick_y, brick_x+1]!=0))   // if player is in front of unpassable block
+                {
+                    return 0;
+                }
+                else if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y + 1, brick_x + 1] != 0) && (y % VaC.BRICK_HEIGHT != 0))
+                {
+                    return 0;
+                }
+                else return pixels + VaC.BRICK_WIDTH;
+            }
+            catch (Exception ex)
+            {
+                return 0;
             }
         }
 
-        public bool IsBrickToMyRight(int brick_x, int brick_y, int y)
+        public int IsBrickToMyLeft(int brick_x, int brick_y, int x, int y)
         {
             try
             {
-                //if ((_tilemap[(int)(y/VaC.BRICK_HEIGHT), brick_x + 1] != 0) || (_tilemap[(int)((y + VaC.BRICK_HEIGHT)/VaC.BRICK_HEIGHT-2), brick_x + 1] != 0)) return true;
-                if (_tilemap[brick_y, brick_x + 1] != 0) return true;
-                else return false;
+                int pixels = x - brick_x * VaC.BRICK_WIDTH;     // horizontal distance to next brick
+                if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y + 1, brick_x - 1] != 0) && (y % VaC.BRICK_HEIGHT != 0))
+                {
+                    return 0;
+                }
+                else if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y, brick_x - 1] != 0))  // if player is in front of unpassable block
+                {
+                    return 0;
+                }
+                else return pixels + VaC.BRICK_WIDTH;
             }
             catch (Exception ex)
             {
-                return true;
-            }
-        }
-
-        public bool IsBrickToMyLeft(int brick_x, int brick_y)
-        {
-            try
-            {
-                if (_tilemap[brick_y, brick_x] != 0) return true;
-                else return false;
-            }
-            catch (Exception ex)
-            {
-                return true;
+                return 0;
             }
         }
         
