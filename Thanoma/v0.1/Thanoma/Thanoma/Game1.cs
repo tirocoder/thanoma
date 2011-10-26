@@ -122,7 +122,8 @@ namespace Thanoma
             // TEST LEVEL
             
             ContentManager cm = Content;
-            test_level.BuildTestLevel(cm, spriteBatch, start_x);
+            test_level.DrawLevel1(cm, spriteBatch);
+            //test_level.BuildTestLevel(cm, spriteBatch, start_x);
 
             // TEST PLAYER
             //Player test_player = new Player(ref cm, 0);
