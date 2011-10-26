@@ -311,6 +311,10 @@ namespace Thanoma
                     // ground
                     _texture = cm.Load<Texture2D>("102");
                     break;
+                case 103:
+                    // ground
+                    _texture = cm.Load<Texture2D>("103");
+                    break;
                 case 200:
                     // stone
                     _texture = cm.Load<Texture2D>("200");

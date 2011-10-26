@@ -100,6 +100,15 @@
       <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player_right2.xnb</Output>
       <Time>2011-10-21T20:24:23.7938926+02:00</Time>
     </Item>
+    <Item>
+      <Source>103.png</Source>
+      <Name>103</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\103.xnb</Output>
+      <Time>2011-10-26T19:47:10.1243275+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
