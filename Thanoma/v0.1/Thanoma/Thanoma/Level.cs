@@ -67,6 +67,7 @@ namespace Thanoma
                     _tilemap[i, i2] = Convert.ToInt32(line[i2]);
                 }
             }
+            sr.Close();
         }
 
         public void DrawLevel1(ContentManager cm, SpriteBatch sb)
