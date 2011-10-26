@@ -29,29 +29,29 @@ namespace Thanoma
 
         /* START: methods */
 
-        public void BuildTestLevel(ContentManager cm, SpriteBatch sb, int start_x)
-        {
-            for (int i = 0; i < VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH; i++)
-            {
-                Brick brick7 = new Brick(cm, 9 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[9, i]);
-                sb.Draw(brick7._texture, brick7._rect, Color.White);
-                Brick brick8 = new Brick(cm, 10 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[10, i]);
-                sb.Draw(brick8._texture, brick8._rect, Color.White);
-                Brick brick6 = new Brick(cm, 8 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[8, i]);
-                sb.Draw(brick6._texture, brick6._rect, Color.White);
-                Brick brick = new Brick(cm, 11 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[11,i]);
-                sb.Draw(brick._texture, brick._rect, Color.White);
-                Brick brick2 = new Brick(cm, 12 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[12, i]);
-                sb.Draw(brick2._texture, brick2._rect, Color.White);
-                Brick brick3 = new Brick(cm, 13 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[13, i]);
-                sb.Draw(brick3._texture, brick3._rect, Color.White);
-                Brick brick4 = new Brick(cm, 14 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[14, i]);
-                sb.Draw(brick4._texture, brick4._rect, Color.White);
-                Brick brick5 = new Brick(cm, 15 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[15, i]);
-                sb.Draw(brick5._texture, brick5._rect, Color.White);
+        //public void BuildTestLevel(ContentManager cm, SpriteBatch sb, int start_x)
+        //{
+        //    for (int i = 0; i < VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH; i++)
+        //    {
+        //        Brick brick7 = new Brick(cm, 9 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[9, i]);
+        //        sb.Draw(brick7._texture, brick7._rect, Color.White);
+        //        Brick brick8 = new Brick(cm, 10 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[10, i]);
+        //        sb.Draw(brick8._texture, brick8._rect, Color.White);
+        //        Brick brick6 = new Brick(cm, 8 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[8, i]);
+        //        sb.Draw(brick6._texture, brick6._rect, Color.White);
+        //        Brick brick = new Brick(cm, 11 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[11,i]);
+        //        sb.Draw(brick._texture, brick._rect, Color.White);
+        //        Brick brick2 = new Brick(cm, 12 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[12, i]);
+        //        sb.Draw(brick2._texture, brick2._rect, Color.White);
+        //        Brick brick3 = new Brick(cm, 13 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[13, i]);
+        //        sb.Draw(brick3._texture, brick3._rect, Color.White);
+        //        Brick brick4 = new Brick(cm, 14 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[14, i]);
+        //        sb.Draw(brick4._texture, brick4._rect, Color.White);
+        //        Brick brick5 = new Brick(cm, 15 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[15, i]);
+        //        sb.Draw(brick5._texture, brick5._rect, Color.White);
                 
-            }
-        }
+        //    }
+        //}
 
         public void LoadLevel1()
         {
