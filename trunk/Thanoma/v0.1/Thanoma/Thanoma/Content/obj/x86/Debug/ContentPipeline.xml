@@ -190,6 +190,33 @@
       <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\109.xnb</Output>
       <Time>2011-10-28T18:09:51.0922751+02:00</Time>
     </Item>
+    <Item>
+      <Source>sounds\jump.wav</Source>
+      <Name>sounds\jump</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\sounds\jump.xnb</Output>
+      <Time>2011-10-28T19:37:10.8458003+02:00</Time>
+    </Item>
+    <Item>
+      <Source>img\bricks\110.png</Source>
+      <Name>img\bricks\110</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\110.xnb</Output>
+      <Time>2011-10-28T20:38:28.5721543+02:00</Time>
+    </Item>
+    <Item>
+      <Source>img\bricks\111.png</Source>
+      <Name>img\bricks\111</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\111.xnb</Output>
+      <Time>2011-10-28T20:38:28.5731543+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

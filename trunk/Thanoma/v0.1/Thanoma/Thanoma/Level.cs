@@ -233,12 +233,12 @@ namespace Thanoma
         {
             try
             {
-                int pixels = (brick_x + 1) * VaC.BRICK_WIDTH - x - VaC.PLAYER_WIDTH;    // horizontal distance to next brick
-                if((pixels<3)&&(_tilemap[brick_y, brick_x+1] > 20))   // if player is in front of unpassable block
+                int pixels = (brick_x + 2) * VaC.BRICK_WIDTH - x - VaC.PLAYER_WIDTH;    // horizontal distance to next brick
+                if((pixels < 3)&&(_tilemap[brick_y, brick_x+2] > 20))   // if player is in front of unpassable block
                 {
                     return 0;
                 }
-                else if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y + 1, brick_x + 1] > 20) && (y % VaC.BRICK_HEIGHT != 0))
+                else if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y + 1, brick_x + 2] > 20) && (y % VaC.BRICK_HEIGHT != 0))
                 {
                     return 0;
                 }

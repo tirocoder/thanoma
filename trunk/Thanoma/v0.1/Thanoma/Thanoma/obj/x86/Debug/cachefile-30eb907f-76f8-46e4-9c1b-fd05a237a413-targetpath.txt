@@ -19,3 +19,6 @@ Content\img\bricks\001.xnb
 Content\img\bricks\002.xnb
 Content\img\bricks\003.xnb
 Content\img\bricks\109.xnb
+Content\sounds\jump.xnb
+Content\img\bricks\110.xnb
+Content\img\bricks\111.xnb
