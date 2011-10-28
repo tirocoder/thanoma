@@ -94,17 +94,17 @@ namespace Thanoma
 
                 if (rect_player.Intersects(rect_brick) == true)
                 {
-                    if (_tilemap[brick_y + 1, brick_x] != 0) return 0;
+                    if (_tilemap[brick_y + 1, brick_x] > 20) return 0;
                     else
                     {
-                        if ((rect_player.Left % VaC.BRICK_WIDTH != 0) && (_tilemap[brick_y + 1, brick_x + 1] != 0))
+                        if ((rect_player.Left % VaC.BRICK_WIDTH != 0) && (_tilemap[brick_y + 1, brick_x + 1] > 20))
                         {
                             return 0;
                         }
                         int value = 0;
                         for (int i = (int)(y / VaC.BRICK_HEIGHT) + 1; i < 15; i++)
                         {
-                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] > 20) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] > 20))
                             {
                                 value = i * VaC.BRICK_HEIGHT;
                                 break;
@@ -120,7 +120,7 @@ namespace Thanoma
                     {
                         if (rect_player.Left % VaC.BRICK_WIDTH != 0)
                         {
-                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] > 20) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] > 20))
                             {
                                 value = i * VaC.BRICK_HEIGHT;
                                 break;
@@ -166,17 +166,17 @@ namespace Thanoma
 
                 if (rect_player.Intersects(rect_brick) == true)
                 {
-                    if (_tilemap[brick_y - 1, brick_x] != 0) return 0;
+                    if (_tilemap[brick_y - 1, brick_x] > 20) return 0;
                     else
                     {
-                        if ((rect_player.Left % VaC.BRICK_WIDTH != 0) && (_tilemap[brick_y - 1, brick_x + 1] != 0))
+                        if ((rect_player.Left % VaC.BRICK_WIDTH != 0) && (_tilemap[brick_y - 1, brick_x + 1] > 20))
                         {
                             return 0;
                         }
                         int value = 0;
                         for (int i = (int)(y / VaC.BRICK_HEIGHT) - 1; i > 0; i--)
                         {
-                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] > 20) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] > 20))
                             {
                                 value = i * VaC.BRICK_HEIGHT;
                                 break;
@@ -192,7 +192,7 @@ namespace Thanoma
                     {
                         if (rect_player.Left % VaC.BRICK_WIDTH != 0)
                         {
-                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
+                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] > 20) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] > 20))
                             {
                                 value = i * VaC.BRICK_HEIGHT;
                                 break;
@@ -228,17 +228,17 @@ namespace Thanoma
                 return 0;
             }
         }
-        // NEXT STEP
+        
         public int IsBrickToMyRight(int brick_x, int brick_y, int x, int y)
         {
             try
             {
                 int pixels = (brick_x + 1) * VaC.BRICK_WIDTH - x - VaC.PLAYER_WIDTH;    // horizontal distance to next brick
-                if((pixels<3)&&(_tilemap[brick_y, brick_x+1]!=0))   // if player is in front of unpassable block
+                if((pixels<3)&&(_tilemap[brick_y, brick_x+1] > 20))   // if player is in front of unpassable block
                 {
                     return 0;
                 }
-                else if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y + 1, brick_x + 1] != 0) && (y % VaC.BRICK_HEIGHT != 0))
+                else if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y + 1, brick_x + 1] > 20) && (y % VaC.BRICK_HEIGHT != 0))
                 {
                     return 0;
                 }
@@ -255,11 +255,11 @@ namespace Thanoma
             try
             {
                 int pixels = x - brick_x * VaC.BRICK_WIDTH;     // horizontal distance to next brick
-                if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y + 1, brick_x - 1] != 0) && (y % VaC.BRICK_HEIGHT != 0))
+                if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y + 1, brick_x - 1] > 20) && (y % VaC.BRICK_HEIGHT != 0))
                 {
                     return 0;
                 }
-                else if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y, brick_x - 1] != 0))  // if player is in front of unpassable block
+                else if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y, brick_x - 1] > 20))  // if player is in front of unpassable block
                 {
                     return 0;
                 }
@@ -293,41 +293,54 @@ namespace Thanoma
             _rect.X = left;
             _rect.Y = top;
 
-            switch(type)
+            try
             {
-                case 0:
-                    // air
-                    _texture = cm.Load<Texture2D>("000");
-                    break;
-                case 100:
-                    // soil
-                    _texture = cm.Load<Texture2D>("100");
-                    break;
-                case 101:
-                    // ground
-                    _texture = cm.Load<Texture2D>("101");
-                    break;
-                case 102:
-                    // ground
-                    _texture = cm.Load<Texture2D>("102");
-                    break;
-                case 103:
-                    // ground
-                    _texture = cm.Load<Texture2D>("103");
-                    break;
-                case 200:
-                    // stone
-                    _texture = cm.Load<Texture2D>("200");
-                    break;
-                case 201:
-                    // stone2
-                    _texture = cm.Load<Texture2D>("201");
-                    break;
-                default:
-                    // air
-                    _texture = cm.Load<Texture2D>("000");
-                    break;
+                string bricktype="";
+                if (type.ToString().Length == 3) bricktype = type.ToString();
+                else if (type.ToString().Length == 2) bricktype = "0" + type.ToString();
+                else bricktype = "00" + type.ToString();
+                _texture = cm.Load<Texture2D>("img/bricks/" + bricktype);
             }
+            catch (Exception ex)
+            {
+                _texture = cm.Load<Texture2D>("img/bricks/000");
+            }
+
+            //switch(type)
+            //{
+            //    case 0:
+            //        // air
+            //        _texture = cm.Load<Texture2D>("000");
+            //        break;
+            //    case 100:
+            //        // soil
+            //        _texture = cm.Load<Texture2D>("100");
+            //        break;
+            //    case 101:
+            //        // ground
+            //        _texture = cm.Load<Texture2D>("101");
+            //        break;
+            //    case 102:
+            //        // ground
+            //        _texture = cm.Load<Texture2D>("102");
+            //        break;
+            //    case 103:
+            //        // ground
+            //        _texture = cm.Load<Texture2D>("103");
+            //        break;
+            //    case 200:
+            //        // stone
+            //        _texture = cm.Load<Texture2D>("200");
+            //        break;
+            //    case 201:
+            //        // stone2
+            //        _texture = cm.Load<Texture2D>("201");
+            //        break;
+            //    default:
+            //        // air
+            //        _texture = cm.Load<Texture2D>("000");
+            //        break;
+            //}
         }
     }
 
