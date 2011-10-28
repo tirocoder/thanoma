@@ -214,8 +214,8 @@ namespace Thanoma
             }
 
             PlayMoveAnimation(cm, gametime);
-            _brick_x = (int)((double)_x / VaC.PLAYER_WIDTH);
-            _brick_y = (int)((double)_y / VaC.PLAYER_HEIGHT);
+            _brick_x = (int)((double)_x / VaC.BRICK_WIDTH);
+            _brick_y = (int)((double)_y / VaC.BRICK_HEIGHT);
             FollowGravity(level);
             DeclareRectangle();
         }

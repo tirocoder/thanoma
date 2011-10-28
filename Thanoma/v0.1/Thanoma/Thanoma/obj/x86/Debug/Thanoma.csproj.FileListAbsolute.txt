@@ -57,3 +57,6 @@ C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Cont
 C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\002.xnb
 C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\003.xnb
 C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\109.xnb
+C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\sounds\jump.xnb
+C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\111.xnb
+C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\110.xnb
