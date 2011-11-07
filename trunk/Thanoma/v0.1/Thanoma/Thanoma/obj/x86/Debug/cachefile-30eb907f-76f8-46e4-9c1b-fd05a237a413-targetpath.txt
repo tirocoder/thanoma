@@ -22,3 +22,6 @@ Content\img\bricks\109.xnb
 Content\sounds\jump.xnb
 Content\img\bricks\110.xnb
 Content\img\bricks\111.xnb
+Content\img\bricks\004.xnb
+Content\img\bricks\015.xnb
+Content\img\npc\001.xnb
