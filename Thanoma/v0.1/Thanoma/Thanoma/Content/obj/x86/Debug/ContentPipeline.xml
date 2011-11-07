@@ -217,6 +217,33 @@
       <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\111.xnb</Output>
       <Time>2011-10-28T20:38:28.5731543+02:00</Time>
     </Item>
+    <Item>
+      <Source>img\bricks\004.png</Source>
+      <Name>img\bricks\004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\004.xnb</Output>
+      <Time>2011-10-28T23:03:08.897182+02:00</Time>
+    </Item>
+    <Item>
+      <Source>img\bricks\015.png</Source>
+      <Name>img\bricks\015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\015.xnb</Output>
+      <Time>2011-10-28T23:07:50.0629983+02:00</Time>
+    </Item>
+    <Item>
+      <Source>img\npc\001.png</Source>
+      <Name>img\npc\001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\npc\001.xnb</Output>
+      <Time>2011-10-29T16:32:22.4189949+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

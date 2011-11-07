@@ -193,7 +193,7 @@ namespace Thanoma
             }
             if ((Keyboard.GetState().IsKeyDown(Keys.A) == true) && (Keyboard.GetState().IsKeyDown(Keys.Space) == true))
             {
-                MovePlayer(level, 'l', 1.3);
+                MovePlayer(level, 'l', 1.15);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.D) == true)
             {
@@ -201,7 +201,7 @@ namespace Thanoma
             }
             if ((Keyboard.GetState().IsKeyDown(Keys.D) == true) && (Keyboard.GetState().IsKeyDown(Keys.Space) == true))
             {
-                MovePlayer(level, 'r', 1.3);
+                MovePlayer(level, 'r', 1.15);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.W) == true)
             {

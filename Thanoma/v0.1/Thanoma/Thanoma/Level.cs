@@ -17,6 +17,8 @@ namespace Thanoma
     {
         /* START: properties */
 
+        Texture2D _background;
+        Rectangle _rect_background;
         int[,] _tilemap = new int[16, VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH];
 
         /* END: properties */
@@ -28,30 +30,6 @@ namespace Thanoma
         }
 
         /* START: methods */
-
-        //public void BuildTestLevel(ContentManager cm, SpriteBatch sb, int start_x)
-        //{
-        //    for (int i = 0; i < VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH; i++)
-        //    {
-        //        Brick brick7 = new Brick(cm, 9 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[9, i]);
-        //        sb.Draw(brick7._texture, brick7._rect, Color.White);
-        //        Brick brick8 = new Brick(cm, 10 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[10, i]);
-        //        sb.Draw(brick8._texture, brick8._rect, Color.White);
-        //        Brick brick6 = new Brick(cm, 8 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[8, i]);
-        //        sb.Draw(brick6._texture, brick6._rect, Color.White);
-        //        Brick brick = new Brick(cm, 11 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[11,i]);
-        //        sb.Draw(brick._texture, brick._rect, Color.White);
-        //        Brick brick2 = new Brick(cm, 12 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[12, i]);
-        //        sb.Draw(brick2._texture, brick2._rect, Color.White);
-        //        Brick brick3 = new Brick(cm, 13 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[13, i]);
-        //        sb.Draw(brick3._texture, brick3._rect, Color.White);
-        //        Brick brick4 = new Brick(cm, 14 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[14, i]);
-        //        sb.Draw(brick4._texture, brick4._rect, Color.White);
-        //        Brick brick5 = new Brick(cm, 15 * VaC.BRICK_HEIGHT, start_x + i * VaC.BRICK_WIDTH, _tilemap[15, i]);
-        //        sb.Draw(brick5._texture, brick5._rect, Color.White);
-                
-        //    }
-        //}
 
         public void LoadLevel1()
         {
@@ -72,6 +50,13 @@ namespace Thanoma
 
         public void DrawLevel1(ContentManager cm, SpriteBatch sb)
         {
+            _background = cm.Load<Texture2D>("bg1");
+
+            _rect_background.Width = _background.Width;
+            _rect_background.Height = _background.Height;
+
+            sb.Draw(_background, _rect_background, Color.White);
+
             for (int i = 0; i < _tilemap.GetLength(1); i++)
             {
                 for (int i2 = 0; i2 < 16; i2++)
@@ -129,27 +114,6 @@ namespace Thanoma
                     }
                     return value - (y + VaC.PLAYER_HEIGHT);
                 }
-
-
-
-
-                //if ((_tilemap[brick_y + 1, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[brick_y + 1, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
-                //{
-                //    return 0;
-                //}
-                //else
-                //{
-                //    int value = 0;
-                //    for (int i = (int)(y / VaC.BRICK_HEIGHT) + 1; i<15 ; i++)
-                //    {
-                //        if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
-                //        {
-                //            value = i * VaC.BRICK_HEIGHT;
-                //            break;
-                //        }
-                //    }
-                //    return value - (y + VaC.PLAYER_HEIGHT);
-                //}
             }
             catch (Exception ex)
             {
@@ -201,27 +165,6 @@ namespace Thanoma
                     }
                     return y - (value + VaC.BRICK_HEIGHT);
                 }
-
-
-
-
-                //if ((_tilemap[brick_y, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[brick_y, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
-                //{
-                //    return 0;
-                //}
-                //else
-                //{
-                //    int value = 0;
-                //    for (int i = (int)(y / VaC.BRICK_HEIGHT) - 1; i > 0; i--)
-                //    {
-                //        if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] != 0) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] != 0))
-                //        {
-                //            value = i * VaC.BRICK_HEIGHT + VaC.BRICK_HEIGHT;
-                //            break;
-                //        }
-                //    }
-                //    return (y + VaC.PLAYER_HEIGHT) - value;
-                //}
             }
             catch (Exception ex)
             {
@@ -231,10 +174,23 @@ namespace Thanoma
         
         public int IsBrickToMyRight(int brick_x, int brick_y, int x, int y)
         {
+            brick_x = (int)((double)x / VaC.BRICK_WIDTH);
+            brick_y = (int)((double)y / VaC.BRICK_HEIGHT);
+
             try
             {
                 int pixels = (brick_x + 2) * VaC.BRICK_WIDTH - x - VaC.PLAYER_WIDTH;    // horizontal distance to next brick
-                if((pixels < 3)&&(_tilemap[brick_y, brick_x+2] > 20))   // if player is in front of unpassable block
+
+                if (y % VaC.BRICK_HEIGHT != 0)
+                {
+                    if (_tilemap[brick_y + 1, brick_x + 2] > 20)
+                    {
+                        return 0;
+                    }
+                }
+
+                
+                if((pixels < 3)&&(_tilemap[brick_y, brick_x + 2] > 20))   // if player is in front of unpassable block
                 {
                     return 0;
                 }
@@ -252,6 +208,8 @@ namespace Thanoma
 
         public int IsBrickToMyLeft(int brick_x, int brick_y, int x, int y)
         {
+            brick_y = (int)((double)y / VaC.BRICK_HEIGHT);
+
             try
             {
                 int pixels = x - brick_x * VaC.BRICK_WIDTH;     // horizontal distance to next brick

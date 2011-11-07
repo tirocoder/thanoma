@@ -22,14 +22,16 @@ namespace Thanoma
         SpriteBatch spriteBatch;
         SpriteBatch spriteBatch2;
 
-        Texture2D bg;
-        public Rectangle rect_bg;
+        //Texture2D bg;
+        //public Rectangle rect_bg;
 
         int start_x = 0;
         int start_x2 = 0;
 
         Player test_player;
         Level test_level;
+
+        AI ai;
 
         private Camera2D camera = new Camera2D();
 
@@ -53,6 +55,8 @@ namespace Thanoma
             test_player = new Player(cm, 0);
             test_level = new Level();
 
+            ai = new AI(cm);
+
 
             base.Initialize();
         }
@@ -65,12 +69,6 @@ namespace Thanoma
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            bg = Content.Load<Texture2D>("bg1");
-            rect_bg.Width = bg.Width;
-            rect_bg.Height = bg.Height;
-
-            //test_player._texture = Content.Load<Texture2D>("player1");
             
             // TODO: use this.Content to load your game content here
         }
@@ -113,23 +111,22 @@ namespace Thanoma
             graphics.PreferredBackBufferHeight = VaC.WINDOW_HEIGHT;
             graphics.ApplyChanges();
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
             
 
             spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None, this.camera.getMatrix());
-            spriteBatch.Draw(bg, rect_bg, Color.White);
-            
-            // TEST LEVEL
             
             ContentManager cm = Content;
+
+            // TEST LEVEL
             test_level.DrawLevel1(cm, spriteBatch);
-            //test_level.BuildTestLevel(cm, spriteBatch, start_x);
+
+            // TEST AI
+            ai.DrawNPCs(cm, spriteBatch);
 
             // TEST PLAYER
-            //Player test_player = new Player(ref cm, 0);
-            //PlayMoveAnimation(test_player, gameTime);
             spriteBatch.Draw(test_player._texture, test_player._rect, Color.White);
-            
+           
+
             spriteBatch.End();
             
 
