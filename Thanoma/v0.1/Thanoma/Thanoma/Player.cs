@@ -18,10 +18,10 @@ namespace Thanoma
         int _type;
         double _speed;
         char _direction;
-        int _x;
-        int _y;
-        int _brick_x;
-        int _brick_y;
+        protected int _x;
+        protected int _y;
+        protected int _brick_x;
+        protected int _brick_y;
 
         public Texture2D _texture = null;
         public Rectangle _rect;
@@ -37,8 +37,6 @@ namespace Thanoma
 
             _rect.Width = VaC.PLAYER_WIDTH;
             _rect.Height = VaC.PLAYER_HEIGHT;
-            _rect.X = VaC.WINDOW_WIDTH / 2;
-            _rect.Y = VaC.WINDOW_HEIGHT - VaC.BRICK_HEIGHT * 6;
 
             switch (type)
             {
@@ -185,35 +183,9 @@ namespace Thanoma
             _rect.Y = _y;
         }
 
-        public void Update(ContentManager cm, GameTime gametime, Level level, SpriteBatch sb)
+        public void Update(ContentManager cm, GameTime gametime, Level level, SpriteBatch sb, bool is_player)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.A) == true)
-            {
-                MovePlayer(level, 'l', 1.0);
-            }
-            if ((Keyboard.GetState().IsKeyDown(Keys.A) == true) && (Keyboard.GetState().IsKeyDown(Keys.Space) == true))
-            {
-                MovePlayer(level, 'l', 1.15);
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.D) == true)
-            {
-                MovePlayer(level, 'r', 1.0);
-            }
-            if ((Keyboard.GetState().IsKeyDown(Keys.D) == true) && (Keyboard.GetState().IsKeyDown(Keys.Space) == true))
-            {
-                MovePlayer(level, 'r', 1.15);
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.W) == true)
-            {
-                // gerade nach oben springen
-                if (is_jumping == false)
-                {
-                    start_y = _y;
-                }
-                JumpPlayer(level);
-            }
-
-            PlayMoveAnimation(cm, gametime);
+            if(is_player) PlayMoveAnimation(cm, gametime);
             _brick_x = (int)((double)_x / VaC.BRICK_WIDTH);
             _brick_y = (int)((double)_y / VaC.BRICK_HEIGHT);
             FollowGravity(level);

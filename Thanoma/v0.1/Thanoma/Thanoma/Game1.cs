@@ -94,8 +94,34 @@ namespace Thanoma
                 this.Exit();
 
             // TODO: Add your update logic here
+
+
+
+            if (Keyboard.GetState().IsKeyDown(Keys.A) == true)
+            {
+                test_player.MovePlayer(test_level, 'l', 1.0);
+            }
+            if ((Keyboard.GetState().IsKeyDown(Keys.A) == true) && (Keyboard.GetState().IsKeyDown(Keys.Space) == true))
+            {
+                test_player.MovePlayer(test_level, 'l', 1.15);
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.D) == true)
+            {
+                test_player.MovePlayer(test_level, 'r', 1.0);
+            }
+            if ((Keyboard.GetState().IsKeyDown(Keys.D) == true) && (Keyboard.GetState().IsKeyDown(Keys.Space) == true))
+            {
+                test_player.MovePlayer(test_level, 'r', 1.15);
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.W) == true)
+            {
+                test_player.JumpPlayer(test_level);
+            }
+
+
             ContentManager cm = Content;
-            test_player.Update(cm, gameTime, test_level, spriteBatch);
+            test_player.Update(cm, gameTime, test_level, spriteBatch, true);
+            ai.npcs[0].Update(cm, gameTime, test_level);
             
             this.camera.Update(gameTime, new Vector2(test_player._rect.X - VaC.WINDOW_WIDTH / 2, 0));
             base.Update(gameTime);

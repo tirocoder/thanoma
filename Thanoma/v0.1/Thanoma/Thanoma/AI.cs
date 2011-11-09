@@ -17,7 +17,7 @@ namespace Thanoma
     {
         /* START: properties */
 
-        IList<NPC> npcs = new List<NPC>();
+        public IList<NPC> npcs = new List<NPC>();
 
         /* END: properties */
 
@@ -40,35 +40,70 @@ namespace Thanoma
 
 
 
-    public class NPC
+    public class NPC : Player
     {
         /* START: properties */
 
-        int _type;
-        double _speed;
-        char _direction; 
-        int _x;
-        int _y;
-        int _brick_x;
-        int _brick_y;
-
-        public Texture2D _texture = null;
-        public Rectangle _rect;
+        
 
         /* END: properties */
 
 
         // constructor
-        public NPC(ContentManager cm)
+        public NPC(ContentManager cm) : base(cm, 0)
         {
             _texture = cm.Load<Texture2D>("img/npc/001");
             _rect.Width = _texture.Width;
             _rect.Height = _texture.Height;
-            _rect.X = VaC.BRICK_WIDTH * 29;
-            _rect.Y = VaC.BRICK_HEIGHT * 10;
+            _x = VaC.BRICK_WIDTH * 15;
+            _y = VaC.BRICK_HEIGHT * 4;
         }
 
         /* START: methods */
+
+        bool stop = false;
+        bool jump = false;
+        public void Walk(Level level)
+        {
+            if (!stop)
+            {
+                if (level.IsBrickToMyRight(_brick_x, _brick_y, _x, _y) == 0)
+                {
+                    jump = true;
+                }
+                else MovePlayer(level, 'r', 0.3);
+            }
+            DoFor5Seconds();
+        }
+
+        bool stop2;
+        public void Jump(Level level)
+        {
+            if (!stop2 && jump) JumpPlayer(level);
+            else jump = false;
+            DoFor5Seconds();
+        }
+
+        DateTime dt = DateTime.Now + TimeSpan.FromSeconds(15);
+        public void DoFor5Seconds()
+        {
+            if (DateTime.Now >= dt)
+            {
+                stop = true;
+                stop2 = true;
+            }
+        }
+
+        public void Update(ContentManager cm, GameTime gametime, Level level)
+        {
+            _brick_x = (int)((double)_x / VaC.BRICK_WIDTH);
+            _brick_y = (int)((double)_y / VaC.BRICK_HEIGHT);
+            FollowGravity(level);
+            DeclareRectangle();
+
+            Jump(level);
+            Walk(level);
+        }
 
         /* END: methods */
     }
