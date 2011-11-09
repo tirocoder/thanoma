@@ -62,25 +62,13 @@ namespace Thanoma
         /* START: methods */
 
         bool stop = false;
-        bool jump = false;
         public void Walk(Level level)
         {
             if (!stop)
             {
-                if (level.IsBrickToMyRight(_brick_x, _brick_y, _x, _y) == 0)
-                {
-                    jump = true;
-                }
-                else MovePlayer(level, 'r', 0.3);
+                MovePlayer(level, 'l', 0.3);
             }
-            DoFor5Seconds();
-        }
-
-        bool stop2;
-        public void Jump(Level level)
-        {
-            if (!stop2 && jump) JumpPlayer(level);
-            else jump = false;
+            else MovePlayer(level, 'r', 0.3);
             DoFor5Seconds();
         }
 
@@ -90,7 +78,6 @@ namespace Thanoma
             if (DateTime.Now >= dt)
             {
                 stop = true;
-                stop2 = true;
             }
         }
 
@@ -101,7 +88,6 @@ namespace Thanoma
             FollowGravity(level);
             DeclareRectangle();
 
-            Jump(level);
             Walk(level);
         }
 
