@@ -26,7 +26,7 @@ namespace Thanoma
         // constructor
         public AI(ContentManager cm)
         {
-            npcs.Add(new NPC(cm));
+            npcs.Add(new NPC(cm, 0));
         }
 
         /* START: methods */
@@ -41,7 +41,7 @@ namespace Thanoma
 
 
 
-    public class NPC : Player
+    public class NPC : Character
     {
         /* START: properties */
 
@@ -51,8 +51,9 @@ namespace Thanoma
 
 
         // constructor
-        public NPC(ContentManager cm) : base(cm, 0)
+        public NPC(ContentManager cm, int type) : base()
         {
+            _type = type;
             _texture = cm.Load<Texture2D>("img/npc/001");
             _rect.Width = _texture.Width;
             _rect.Height = _texture.Height;
@@ -75,15 +76,15 @@ namespace Thanoma
         {
             if (i_elapsed < 10)
             {
-                MovePlayer(level, 'l', 0.3);
+                Move(level, Direction.Left, 0.3);
             }
             if (i_elapsed >= 10 && i_elapsed < 15)
             {
-                if(i_elapsed!=13) JumpPlayer(level);
+                if(i_elapsed!=13) Jump1(level);
             }
             if (i_elapsed >= 15 && i_elapsed < 28)
             {
-                MovePlayer(level, 'r', 0.3);
+                Move(level, Direction.Right, 0.3);
             }
         }
 
