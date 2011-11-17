@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+using System.Timers;
 
 namespace Thanoma
 {
@@ -57,19 +58,40 @@ namespace Thanoma
             _rect.Height = _texture.Height;
             _x = VaC.BRICK_WIDTH * 15;
             _y = VaC.BRICK_HEIGHT * 4;
+
+            // Timer
+
+            timer.Elapsed += new ElapsedEventHandler(timer_Elapsed);
+            timer.Start();
         }
 
         /* START: methods */
 
         bool stop = false;
+
+        Timer timer = new Timer(500);
+        int i_elapsed = 0;
         public void Walk(Level level)
         {
-            if (!stop)
+            if (i_elapsed < 10)
             {
                 MovePlayer(level, 'l', 0.3);
             }
-            else MovePlayer(level, 'r', 0.3);
-            DoFor5Seconds();
+            if (i_elapsed >= 10 && i_elapsed < 15)
+            {
+                if(i_elapsed!=13) JumpPlayer(level);
+            }
+            if (i_elapsed >= 15 && i_elapsed < 28)
+            {
+                MovePlayer(level, 'r', 0.3);
+            }
+        }
+
+        void timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            i_elapsed++;
+            timer.Stop();
+            timer.Start();
         }
 
         DateTime dt = DateTime.Now + TimeSpan.FromSeconds(15);

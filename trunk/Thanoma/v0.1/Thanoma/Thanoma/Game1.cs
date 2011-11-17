@@ -116,6 +116,7 @@ namespace Thanoma
             if (Keyboard.GetState().IsKeyDown(Keys.W) == true)
             {
                 test_player.JumpPlayer(test_level);
+                //test_player.StartJump(test_level, DateTime.Now);
             }
 
 

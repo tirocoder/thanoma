@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+//using System.Timers;
 
 namespace Thanoma
 {
@@ -37,7 +38,7 @@ namespace Thanoma
 
             _rect.Width = VaC.PLAYER_WIDTH;
             _rect.Height = VaC.PLAYER_HEIGHT;
-
+            
             switch (type)
             {
                 case 0:
@@ -147,6 +148,40 @@ namespace Thanoma
             }
         }
 
+        DateTime dt_start;
+        bool allow_jump = true;
+        bool jumping = false;
+        public void StartJump(Level level, DateTime dt)
+        {
+            if (allow_jump)
+            {
+                dt_start = dt + TimeSpan.FromSeconds(3);
+                allow_jump = false;
+                jumping = true;
+                Jump();
+            }
+        }
+
+        public void Jump()
+        {
+            try
+            {
+                if (jumping == true && DateTime.Now < dt_start)
+                {
+                    _y -= 1;
+                }
+                else
+                {
+                    allow_jump = true;
+                    jumping = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
         //DateTime dt = new DateTime();
         public void FallDown()
         {
@@ -185,6 +220,7 @@ namespace Thanoma
 
         public void Update(ContentManager cm, GameTime gametime, Level level, SpriteBatch sb, bool is_player)
         {
+            Jump();
             if(is_player) PlayMoveAnimation(cm, gametime);
             _brick_x = (int)((double)_x / VaC.BRICK_WIDTH);
             _brick_y = (int)((double)_y / VaC.BRICK_HEIGHT);
