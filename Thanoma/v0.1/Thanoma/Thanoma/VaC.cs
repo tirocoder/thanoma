@@ -18,5 +18,11 @@ namespace Thanoma
 
         public const int BRICK_WIDTH = 28;
         public const int BRICK_HEIGHT = 28;
+
+        // TEXTURE STRINGS
+        public const string TEXTURE_PLAYER_LEFT1 = "player_left1";
+        public const string TEXTURE_PLAYER_LEFT2 = "player_left2";
+        public const string TEXTURE_PLAYER_RIGHT1 = "player_right1";
+        public const string TEXTURE_PLAYER_RIGHT2 = "player_right2";
     }
 }
