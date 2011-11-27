@@ -19,7 +19,7 @@ namespace Thanoma
 
         Texture2D _background;
         Rectangle _rect_background;
-        int[,] _tilemap = new int[16, VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH];
+        public int[,] _tilemap = new int[16, VaC.LEVEL_WIDTH / VaC.BRICK_WIDTH];
 
         /* END: properties */
 

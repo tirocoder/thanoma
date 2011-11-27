@@ -55,7 +55,7 @@ namespace Thanoma
             test_player = new Player(cm, 0);
             test_level = new Level();
 
-            ai = new AI(cm);
+            ai = new AI(cm, test_level);
 
 
             base.Initialize();
@@ -122,7 +122,10 @@ namespace Thanoma
 
             ContentManager cm = Content;
             test_player.Update(cm, gameTime, test_level, spriteBatch, true);
-            ai.npcs[0].Update(cm, gameTime, test_level);
+            foreach (NPC npc in ai.npcs)
+            {
+                npc.Update(cm, gameTime, test_level, test_player);
+            }
             
             this.camera.Update(gameTime, new Vector2(test_player._rect.X - VaC.WINDOW_WIDTH / 2, 0));
             base.Update(gameTime);

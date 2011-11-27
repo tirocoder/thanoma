@@ -171,10 +171,28 @@ namespace Thanoma
             {
                 if (_y >= start_y - 56)
                 {
-                    is_jumping = true;
+                    //is_jumping = true;
                     _y -= 10;
                 }
-                else is_jumping = false;
+                //else is_jumping = false;
+            }
+            else //((value != 0) && (10 >= value))
+            {
+                _y += value;
+            }
+        }
+
+        public void Jump2(Level level)
+        {
+            int value = level.IsBrickAboveMe(_brick_x, _brick_y, _x, _y);
+            if ((value != 0) && (10 <= value))
+            {
+                if (_y >= start_y - 56)
+                {
+                    //is_jumping = true;
+                    _y -= 7;
+                }
+                //else is_jumping = false;
             }
             else //((value != 0) && (10 >= value))
             {
