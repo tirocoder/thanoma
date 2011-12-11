@@ -29,8 +29,8 @@ namespace Thanoma
         protected Direction _direction;
         protected double _speed;
 
-        protected int _x;
-        protected int _y;
+        public int _x;
+        public int _y;
         protected int _brick_x;
         protected int _brick_y;
 

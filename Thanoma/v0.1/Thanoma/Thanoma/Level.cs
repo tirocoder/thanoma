@@ -79,17 +79,17 @@ namespace Thanoma
 
                 if (rect_player.Intersects(rect_brick) == true)
                 {
-                    if (_tilemap[brick_y + 1, brick_x] > 20) return 0;
+                    if (IsBrickUnpassable(_tilemap[brick_y + 1, brick_x])) return 0;
                     else
                     {
-                        if ((rect_player.Left % VaC.BRICK_WIDTH != 0) && (_tilemap[brick_y + 1, brick_x + 1] > 20))
+                        if ((rect_player.Left % VaC.BRICK_WIDTH != 0) && (IsBrickUnpassable(_tilemap[brick_y + 1, brick_x + 1])))
                         {
                             return 0;
                         }
                         int value = 0;
                         for (int i = (int)(y / VaC.BRICK_HEIGHT) + 1; i < 15; i++)
                         {
-                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] > 20) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] > 20))
+                            if ((IsBrickUnpassable(_tilemap[i, (int)(x / VaC.BRICK_WIDTH)])) || (IsBrickUnpassable(_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)])))
                             {
                                 value = i * VaC.BRICK_HEIGHT;
                                 break;
@@ -105,7 +105,7 @@ namespace Thanoma
                     {
                         if (rect_player.Left % VaC.BRICK_WIDTH != 0)
                         {
-                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] > 20) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] > 20))
+                            if ((IsBrickUnpassable(_tilemap[i, (int)(x / VaC.BRICK_WIDTH)])) || (IsBrickUnpassable(_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)])))
                             {
                                 value = i * VaC.BRICK_HEIGHT;
                                 break;
@@ -130,17 +130,17 @@ namespace Thanoma
 
                 if (rect_player.Intersects(rect_brick) == true)
                 {
-                    if (_tilemap[brick_y - 1, brick_x] > 20) return 0;
+                    if (IsBrickUnpassable(_tilemap[brick_y - 1, brick_x])) return 0;
                     else
                     {
-                        if ((rect_player.Left % VaC.BRICK_WIDTH != 0) && (_tilemap[brick_y - 1, brick_x + 1] > 20))
+                        if ((rect_player.Left % VaC.BRICK_WIDTH != 0) && (IsBrickUnpassable(_tilemap[brick_y - 1, brick_x + 1])))
                         {
                             return 0;
                         }
                         int value = 0;
                         for (int i = (int)(y / VaC.BRICK_HEIGHT) - 1; i > 0; i--)
                         {
-                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] > 20) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] > 20))
+                            if ((IsBrickUnpassable(_tilemap[i, (int)(x / VaC.BRICK_WIDTH)])) || (IsBrickUnpassable(_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)])))
                             {
                                 value = i * VaC.BRICK_HEIGHT;
                                 break;
@@ -156,7 +156,7 @@ namespace Thanoma
                     {
                         if (rect_player.Left % VaC.BRICK_WIDTH != 0)
                         {
-                            if ((_tilemap[i, (int)(x / VaC.BRICK_WIDTH)] > 20) || (_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)] > 20))
+                            if ((IsBrickUnpassable(_tilemap[i, (int)(x / VaC.BRICK_WIDTH)])) || (IsBrickUnpassable(_tilemap[i, (int)((x + VaC.BRICK_WIDTH) / VaC.BRICK_WIDTH)])))
                             {
                                 value = i * VaC.BRICK_HEIGHT;
                                 break;
@@ -183,18 +183,18 @@ namespace Thanoma
 
                 if (y % VaC.BRICK_HEIGHT != 0)
                 {
-                    if (_tilemap[brick_y + 1, brick_x + 2] > 20)
+                    if (IsBrickUnpassable(_tilemap[brick_y + 1, brick_x + 2]))
                     {
                         return 0;
                     }
                 }
 
                 
-                if((pixels < 3)&&(_tilemap[brick_y, brick_x + 2] > 20))   // if player is in front of unpassable block
+                if((pixels < 3)&&(IsBrickUnpassable(_tilemap[brick_y, brick_x + 2])))   // if player is in front of unpassable block
                 {
                     return 0;
                 }
-                else if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y + 1, brick_x + 2] > 20) && (y % VaC.BRICK_HEIGHT != 0))
+                else if ((pixels < 3) && (brick_x != 0) && (IsBrickUnpassable(_tilemap[brick_y + 1, brick_x + 2])) && (y % VaC.BRICK_HEIGHT != 0))
                 {
                     return 0;
                 }
@@ -213,11 +213,11 @@ namespace Thanoma
             try
             {
                 int pixels = x - brick_x * VaC.BRICK_WIDTH;     // horizontal distance to next brick
-                if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y + 1, brick_x - 1] > 20) && (y % VaC.BRICK_HEIGHT != 0))
+                if ((pixels < 3) && (brick_x != 0) && (IsBrickUnpassable(_tilemap[brick_y + 1, brick_x - 1])) && (y % VaC.BRICK_HEIGHT != 0))
                 {
                     return 0;
                 }
-                else if ((pixels < 3) && (brick_x != 0) && (_tilemap[brick_y, brick_x - 1] > 20))  // if player is in front of unpassable block
+                else if ((pixels < 3) && (brick_x != 0) && (IsBrickUnpassable(_tilemap[brick_y, brick_x - 1])))  // if player is in front of unpassable block
                 {
                     return 0;
                 }
@@ -227,6 +227,12 @@ namespace Thanoma
             {
                 return 0;
             }
+        }
+
+        public bool IsBrickUnpassable(int type)
+        {
+            if (type > 20 && type < 800) return true;
+            else return false;
         }
         
         /* END: methods */
@@ -253,11 +259,18 @@ namespace Thanoma
 
             try
             {
-                string bricktype="";
-                if (type.ToString().Length == 3) bricktype = type.ToString();
-                else if (type.ToString().Length == 2) bricktype = "0" + type.ToString();
-                else bricktype = "00" + type.ToString();
-                _texture = cm.Load<Texture2D>("img/bricks/" + bricktype);
+                if (type == 999)
+                {
+                    _texture = cm.Load<Texture2D>("img/bricks/000");
+                }
+                else
+                {
+                    string bricktype = "";
+                    if (type.ToString().Length == 3) bricktype = type.ToString();
+                    else if (type.ToString().Length == 2) bricktype = "0" + type.ToString();
+                    else bricktype = "00" + type.ToString();
+                    _texture = cm.Load<Texture2D>("img/bricks/" + bricktype);
+                }
             }
             catch (Exception ex)
             {

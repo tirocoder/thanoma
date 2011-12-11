@@ -55,7 +55,7 @@ namespace Thanoma
             test_player = new Player(cm, 0);
             test_level = new Level();
 
-            ai = new AI(cm, test_level);
+            ai = new AI(cm, test_level, test_player);
 
 
             base.Initialize();
@@ -126,6 +126,8 @@ namespace Thanoma
             {
                 npc.Update(cm, gameTime, test_level, test_player);
             }
+
+            ai.LetNPCFollowPlayer(test_level, test_player);
             
             this.camera.Update(gameTime, new Vector2(test_player._rect.X - VaC.WINDOW_WIDTH / 2, 0));
             base.Update(gameTime);

@@ -20,13 +20,18 @@ namespace Thanoma
 
         public IList<NPC> npcs = new List<NPC>();
 
+        Timer timer = new Timer(500);
+
         /* END: properties */
 
 
         // constructor
-        public AI(ContentManager cm, Level level)
+        public AI(ContentManager cm, Level level, Player player)
         {
-            //npcs.Add(new NPC(cm, 0));
+            // Timer
+
+            timer.Elapsed += new ElapsedEventHandler(timer_Elapsed);
+            timer.Start();
 
             // read level file
             StreamReader sr = new StreamReader(@"C:\thanoma\level1.txt");
@@ -41,10 +46,55 @@ namespace Thanoma
                 }
             }
             sr.Close();
+
+            LetNPCFollowPlayer(level, player);
             
         }
 
         /* START: methods */
+
+        int i_elapsed = 0;
+        void timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            i_elapsed++;
+            timer.Stop();
+            timer.Start();
+        }
+
+        public void LetNPCFollowPlayer(Level level, Player player)
+        {
+            IsNPCRight();
+            foreach (NPC npc in npcs)
+            {
+                if (player._rect.X < npc._x)
+                {
+                    if(npc.moving) npc.Move(level, Direction.Left, 0.3);
+                }
+                if (player._rect.X > npc._x)
+                {
+                    if(npc.moving) npc.Move(level, Direction.Right, 0.3);
+                }
+                if (player._rect.Y < npc._y) npc.Jump2(level);
+            }
+        }
+
+        public void IsNPCRight()
+        {
+            for ( int i = 0; i < npcs.Count; i++ )
+            {
+                for (int i2 = 0; i2 < npcs.Count - 1; i2++)
+                {
+                    if (i != i2)
+                    {
+                        //if (npcs[i]._rect.X + npcs[i]._rect.Width == npcs[i2]._rect.X) npcs[i].moving = false;
+                        //else npcs[i].moving = true;
+
+                        if (npcs[i2]._rect.X > npcs[i]._rect.X + npcs[i]._rect.Width && npcs[i2]._rect.X < npcs[i]._rect.X + npcs[i]._rect.Width * 2) npcs[i].moving = false;
+                        else npcs[i].moving = true;
+                    }
+                }
+            }
+        }
 
         public void DrawNPCs(ContentManager cm, SpriteBatch sb)
         {
@@ -63,7 +113,7 @@ namespace Thanoma
     {
         /* START: properties */
 
-        
+        public bool moving = false;
 
         /* END: properties */
 
@@ -77,19 +127,14 @@ namespace Thanoma
             _rect.Height = _texture.Height;
             _x = VaC.BRICK_WIDTH * brick_x;
             _y = VaC.BRICK_HEIGHT * brick_y;
-
-            // Timer
-
-            timer.Elapsed += new ElapsedEventHandler(timer_Elapsed);
-            timer.Start();
         }
 
         /* START: methods */
 
         bool stop = false;
 
-        Timer timer = new Timer(500);
-        int i_elapsed = 0;
+        
+        
         public void Walk(Level level, Player player)
         {
             //if (i_elapsed < 10)
@@ -108,12 +153,7 @@ namespace Thanoma
             //}
         }
 
-        void timer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            i_elapsed++;
-            timer.Stop();
-            timer.Start();
-        }
+        
 
         DateTime dt = DateTime.Now + TimeSpan.FromSeconds(15);
         public void DoFor5Seconds()
@@ -131,7 +171,7 @@ namespace Thanoma
             FollowGravity(level);
             DeclareRectangle();
 
-            Walk(level, player);
+            //Walk(level, player);
         }
 
         /* END: methods */
