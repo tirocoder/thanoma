@@ -13,7 +13,7 @@ namespace Thanoma
         public const int PLAYER_WIDTH = 28;
         public const int PLAYER_HEIGHT = 28;
 
-        public const int LEVEL_WIDTH = 1036;
+        public const int LEVEL_WIDTH = 2072;
         public const int LEVEL_HEIGHT = 448;
 
         public const int BRICK_WIDTH = 28;
