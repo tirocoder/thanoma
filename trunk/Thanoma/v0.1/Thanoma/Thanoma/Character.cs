@@ -28,6 +28,7 @@ namespace Thanoma
         protected int _type;
         protected Direction _direction;
         protected double _speed;
+        protected int _lives;
 
         public int _x;
         public int _y;
@@ -53,6 +54,7 @@ namespace Thanoma
             _type = type;
             _speed = 1.0;
             _direction = Direction.Right;
+            _lives = 3;
 
             _x = VaC.WINDOW_WIDTH / 2;
             _y = VaC.WINDOW_HEIGHT - VaC.BRICK_HEIGHT * 10;
