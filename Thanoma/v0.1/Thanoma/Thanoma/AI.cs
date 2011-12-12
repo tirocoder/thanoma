@@ -61,41 +61,58 @@ namespace Thanoma
             timer.Start();
         }
 
+        // "Test AI" - all npcs follow player (no jumping!)
         public void LetNPCFollowPlayer(Level level, Player player)
         {
-            IsNPCRight();
+            int i=0;
             foreach (NPC npc in npcs)
             {
                 if (player._rect.X < npc._x)
                 {
-                    if(npc.moving) npc.Move(level, Direction.Left, 0.3);
+                    if(!IsNPCLeft(npc, i)) npc.Move(level, Direction.Left, 0.3);
                 }
                 if (player._rect.X > npc._x)
                 {
-                    if(npc.moving) npc.Move(level, Direction.Right, 0.3);
+                    if(!IsNPCRight(npc, i)) npc.Move(level, Direction.Right, 0.3);
                 }
-                if (player._rect.Y < npc._y) npc.Jump2(level);
+                i++;
             }
         }
 
-        public void IsNPCRight()
+        // checks if npc hit player
+        public bool CheckHitPlayer(NPC npc, Player player)
+        {
+            if (npc._rect.Intersects(player._rect)) return true;
+            else return false;
+        }
+
+        // checks if other npc is left to current npc
+        public bool IsNPCLeft(NPC npc, int index)
         {
             for ( int i = 0; i < npcs.Count; i++ )
             {
-                for (int i2 = 0; i2 < npcs.Count - 1; i2++)
+                if (i != index)
                 {
-                    if (i != i2)
-                    {
-                        //if (npcs[i]._rect.X + npcs[i]._rect.Width == npcs[i2]._rect.X) npcs[i].moving = false;
-                        //else npcs[i].moving = true;
-
-                        if (npcs[i2]._rect.X > npcs[i]._rect.X + npcs[i]._rect.Width && npcs[i2]._rect.X < npcs[i]._rect.X + npcs[i]._rect.Width * 2) npcs[i].moving = false;
-                        else npcs[i].moving = true;
-                    }
+                    if (npc._x > npcs[i]._x && npc._x < npcs[i]._x + npcs[i]._rect.Width) return true;
                 }
             }
+            return false;
         }
 
+        // checks if other npc is right to current npc
+        public bool IsNPCRight(NPC npc, int index)
+        {
+            for (int i = 0; i < npcs.Count; i++)
+            {
+                if (i != index)
+                {
+                    if (npc._x + npc._rect.Width > npcs[i]._x && npc._x + npc._rect.Width < npcs[i]._x + npcs[i]._rect.Width) return true;
+                }
+            }
+            return false;
+        }
+
+        // draws all npcs in npc-list
         public void DrawNPCs(ContentManager cm, SpriteBatch sb)
         {
             foreach (NPC npc in npcs)
@@ -113,7 +130,7 @@ namespace Thanoma
     {
         /* START: properties */
 
-        public bool moving = false;
+        
 
         /* END: properties */
 

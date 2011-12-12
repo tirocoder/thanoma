@@ -99,35 +99,40 @@ namespace Thanoma
 
             if (Keyboard.GetState().IsKeyDown(Keys.A) == true)
             {
-                test_player.MovePlayer(test_level, 'l', 1.0);
+                test_player.Move(test_level, Direction.Left, 1.0);
             }
             if ((Keyboard.GetState().IsKeyDown(Keys.A) == true) && (Keyboard.GetState().IsKeyDown(Keys.Space) == true))
             {
-                test_player.MovePlayer(test_level, 'l', 1.15);
+                test_player.Move(test_level, Direction.Left, 1.15);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.D) == true)
             {
-                test_player.MovePlayer(test_level, 'r', 1.0);
+                test_player.Move(test_level, Direction.Right, 1.0);
             }
             if ((Keyboard.GetState().IsKeyDown(Keys.D) == true) && (Keyboard.GetState().IsKeyDown(Keys.Space) == true))
             {
-                test_player.MovePlayer(test_level, 'r', 1.15);
+                test_player.Move(test_level, Direction.Right, 1.15);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.W) == true)
             {
-                test_player.JumpPlayer(test_level);
+                test_player.Jump1(test_level);
                 //test_player.StartJump(test_level, DateTime.Now);
             }
 
+            bool doit = true;
 
             ContentManager cm = Content;
-            test_player.Update(cm, gameTime, test_level, spriteBatch, true);
+            test_player.Update(cm, gameTime, test_level, spriteBatch);
             foreach (NPC npc in ai.npcs)
             {
                 npc.Update(cm, gameTime, test_level, test_player);
+                if (ai.CheckHitPlayer(npc, test_player))
+                {
+                    doit = false;
+                }
             }
 
-            ai.LetNPCFollowPlayer(test_level, test_player);
+            if(doit) ai.LetNPCFollowPlayer(test_level, test_player);
             
             this.camera.Update(gameTime, new Vector2(test_player._rect.X - VaC.WINDOW_WIDTH / 2, 0));
             base.Update(gameTime);
