@@ -23,8 +23,8 @@ namespace Thanoma
             _direction = Direction.Right;
             _lives = 3;
 
-            _x = VaC.WINDOW_WIDTH / 2;
-            _y = VaC.WINDOW_HEIGHT - VaC.BRICK_HEIGHT * 10;
+            _x = 28;
+            _y = VaC.WINDOW_HEIGHT - VaC.BRICK_HEIGHT * 9;
 
             _rect.Width = VaC.PLAYER_WIDTH;
             _rect.Height = VaC.PLAYER_HEIGHT;

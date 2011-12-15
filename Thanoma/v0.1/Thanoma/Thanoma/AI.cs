@@ -67,6 +67,7 @@ namespace Thanoma
             int i=0;
             foreach (NPC npc in npcs)
             {
+                // check for collisions
                 if (player._rect.X < npc._x)
                 {
                     if(!IsNPCLeft(npc, i)) npc.Move(level, Direction.Left, 0.3);
@@ -75,6 +76,9 @@ namespace Thanoma
                 {
                     if(!IsNPCRight(npc, i)) npc.Move(level, Direction.Right, 0.3);
                 }
+                if (IsNPCBelow(npc, i)) npc.fallDown = false;
+                else npc.fallDown = true;
+
                 i++;
             }
         }
@@ -82,7 +86,10 @@ namespace Thanoma
         // checks if npc hit player
         public bool CheckHitPlayer(NPC npc, Player player)
         {
-            if (npc._rect.Intersects(player._rect)) return true;
+            if (npc._rect.Intersects(player._rect))
+            {
+                return true;
+            }
             else return false;
         }
 
@@ -93,7 +100,13 @@ namespace Thanoma
             {
                 if (i != index)
                 {
-                    if (npc._x > npcs[i]._x && npc._x < npcs[i]._x + npcs[i]._rect.Width) return true;
+                    if (npc._x > npcs[i]._x && npc._x < npcs[i]._x + npcs[i]._rect.Width)
+                    {
+                        if (npc._y > npcs[i]._y - 2 && npc._y < npcs[i]._y + npcs[i]._rect.Height + 2)
+                        {
+                            return true;
+                        }
+                    }
                 }
             }
             return false;
@@ -106,7 +119,32 @@ namespace Thanoma
             {
                 if (i != index)
                 {
-                    if (npc._x + npc._rect.Width > npcs[i]._x && npc._x + npc._rect.Width < npcs[i]._x + npcs[i]._rect.Width) return true;
+                    if (npc._x + npc._rect.Width > npcs[i]._x && npc._x + npc._rect.Width < npcs[i]._x + npcs[i]._rect.Width)
+                    {
+                        if (npc._y > npcs[i]._y - 2 && npc._y < npcs[i]._y + npcs[i]._rect.Height + 2)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        // checks if other npc is under current npc
+        public bool IsNPCBelow(NPC npc, int index)
+        {
+            for (int i = 0; i < npcs.Count; i++)
+            {
+                if (i != index)
+                {
+                    if (npc._y + npc._rect.Height > npcs[i]._y && npc._y + npc._rect.Height < npcs[i]._y + npcs[i]._rect.Height)
+                    {
+                        if(npc._rect.Intersects(npcs[i]._rect))
+                        {
+                            return true;
+                        }
+                    }
                 }
             }
             return false;

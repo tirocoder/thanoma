@@ -28,7 +28,8 @@ namespace Thanoma
         protected int _type;
         protected Direction _direction;
         protected double _speed;
-        protected int _lives;
+        public int _lives;
+        public bool fallDown;
 
         public int _x;
         public int _y;
@@ -55,6 +56,7 @@ namespace Thanoma
             _speed = 1.0;
             _direction = Direction.Right;
             _lives = 3;
+            fallDown = true;
 
             _x = VaC.WINDOW_WIDTH / 2;
             _y = VaC.WINDOW_HEIGHT - VaC.BRICK_HEIGHT * 10;
@@ -208,18 +210,21 @@ namespace Thanoma
         double val = 0.0;
         public void FollowGravity(Level level)
         {
-            int value = level.IsBrickUnderMe(_brick_x, _brick_y, _x, _y);
-            if ((value != 0) && (2 + (int)val <= value))
+            if (fallDown == true)
             {
-                // let player fall down (if not on ground)
-                _y += 2 + (int)val;
-                val += 0.3;
+                int value = level.IsBrickUnderMe(_brick_x, _brick_y, _x, _y);
+                if ((value != 0) && (2 + (int)val <= value))
+                {
+                    // let player fall down (if not on ground)
+                    _y += 2 + (int)val;
+                    val += 0.3;
+                }
+                else if ((value != 0) && (2 + (int)val >= value))
+                {
+                    _y += value;
+                }
+                else val = 0.0;
             }
-            else if ((value != 0) && (2 + (int)val >= value))
-            {
-                _y += value;
-            }
-            else val = 0.0;
         }
 
 

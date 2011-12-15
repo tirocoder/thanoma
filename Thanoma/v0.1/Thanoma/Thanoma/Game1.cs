@@ -21,6 +21,7 @@ namespace Thanoma
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteBatch spriteBatch2;
+        SpriteFont _statsFont;
 
         //Texture2D bg;
         //public Rectangle rect_bg;
@@ -69,6 +70,8 @@ namespace Thanoma
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            _statsFont = Content.Load<SpriteFont>("fonts/test1");
             
             // TODO: use this.Content to load your game content here
         }
@@ -81,6 +84,8 @@ namespace Thanoma
         {
             // TODO: Unload any non ContentManager content here
         }
+
+        bool restart = false;
 
         /// <summary>
         /// Allows the game to run logic such as updating the world,
@@ -132,7 +137,15 @@ namespace Thanoma
                 }
             }
 
-            if(doit) ai.LetNPCFollowPlayer(test_level, test_player);
+            if (doit) ai.LetNPCFollowPlayer(test_level, test_player);
+            else
+            {
+                if (!restart)
+                {
+                    test_player._lives--;
+                    restart = true;
+                }
+            }
             
             this.camera.Update(gameTime, new Vector2(test_player._rect.X - VaC.WINDOW_WIDTH / 2, 0));
             base.Update(gameTime);
@@ -154,15 +167,17 @@ namespace Thanoma
             
             ContentManager cm = Content;
 
-            // TEST LEVEL
-            test_level.DrawLevel1(cm, spriteBatch);
-
             // TEST AI
             ai.DrawNPCs(cm, spriteBatch);
 
             // TEST PLAYER
             spriteBatch.Draw(test_player._texture, test_player._rect, Color.White);
-           
+
+            // TEST LEVEL
+            test_level.DrawLevel1(cm, spriteBatch);
+            
+            // render player lives
+            spriteBatch.DrawString(_statsFont, string.Format("Lives: {0}", test_player._lives), new Vector2(test_player._x - VaC.WINDOW_WIDTH / 2 + 30, 30), Color.Red);
 
             spriteBatch.End();
             

@@ -79,3 +79,5 @@ C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\C
 C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\015.xnb
 C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\npc\001.xnb
 C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\sounds\jump.xnb
+C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\fonts\test1.xnb
+C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\010.xnb
