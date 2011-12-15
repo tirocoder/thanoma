@@ -244,6 +244,24 @@
       <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\sounds\jump.xnb</Output>
       <Time>2011-11-27T14:58:01.2456+01:00</Time>
     </Item>
+    <Item>
+      <Source>fonts\test1.spritefont</Source>
+      <Name>fonts\test1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\fonts\test1.xnb</Output>
+      <Time>2011-12-13T19:56:47.2551677+01:00</Time>
+    </Item>
+    <Item>
+      <Source>img\bricks\010.png</Source>
+      <Name>img\bricks\010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\010.xnb</Output>
+      <Time>2011-12-13T23:02:26.783+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

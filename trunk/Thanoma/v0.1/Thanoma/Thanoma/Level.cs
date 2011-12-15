@@ -50,12 +50,12 @@ namespace Thanoma
 
         public void DrawLevel1(ContentManager cm, SpriteBatch sb)
         {
-            _background = cm.Load<Texture2D>("bg1");
+            //_background = cm.Load<Texture2D>("bg1");
 
-            _rect_background.Width = _background.Width;
-            _rect_background.Height = _background.Height;
+            //_rect_background.Width = _background.Width;
+            //_rect_background.Height = _background.Height;
 
-            sb.Draw(_background, _rect_background, Color.White);
+            //sb.Draw(_background, _rect_background, Color.White);
 
             for (int i = 0; i < _tilemap.GetLength(1); i++)
             {
