@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\bg1.xnb</Output>
-      <Time>2011-10-23T17:44:51.879+02:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\bg1.xnb</Output>
+      <Time>2011-10-20T22:51:33.8949987+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\000.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\000.xnb</Output>
-      <Time>2011-11-27T14:58:02.2246+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\000.xnb</Output>
+      <Time>2011-10-20T22:51:33.8799979+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\100.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\100.xnb</Output>
-      <Time>2011-11-27T14:58:02.2486+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\100.xnb</Output>
+      <Time>2011-10-20T22:51:33.8839981+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\101.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\101.xnb</Output>
-      <Time>2011-11-27T14:58:02.3236+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\101.xnb</Output>
+      <Time>2011-10-20T22:51:33.8859982+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\200.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\200.xnb</Output>
-      <Time>2011-11-27T14:58:02.4516+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\200.xnb</Output>
+      <Time>2011-10-20T22:51:33.8889984+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\201.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\201.xnb</Output>
-      <Time>2011-11-27T14:58:02.4696+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\201.xnb</Output>
+      <Time>2011-10-20T22:51:33.8929986+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\102.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\102.xnb</Output>
-      <Time>2011-11-27T14:58:02.5156+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\102.xnb</Output>
+      <Time>2011-10-20T22:51:33.8909985+02:00</Time>
     </Item>
     <Item>
       <Source>player_left1.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player_left1.xnb</Output>
-      <Time>2011-10-23T17:44:51.897+02:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player_left1.xnb</Output>
+      <Time>2011-10-21T20:24:23.7626926+02:00</Time>
     </Item>
     <Item>
       <Source>player_left2.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player_left2.xnb</Output>
-      <Time>2011-10-23T17:44:52.277+02:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player_left2.xnb</Output>
+      <Time>2011-10-21T20:24:23.7626926+02:00</Time>
     </Item>
     <Item>
       <Source>player_right1.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player_right1.xnb</Output>
-      <Time>2011-10-23T17:44:52.291+02:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player_right1.xnb</Output>
+      <Time>2011-10-21T20:24:23.7626926+02:00</Time>
     </Item>
     <Item>
       <Source>player_right2.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player_right2.xnb</Output>
-      <Time>2011-10-23T17:44:52.314+02:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\player_right2.xnb</Output>
+      <Time>2011-10-21T20:24:23.7938926+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\103.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\103.xnb</Output>
-      <Time>2011-11-27T14:58:02.5306+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\103.xnb</Output>
+      <Time>2011-10-26T19:47:10.1243275+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\104.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\104.xnb</Output>
-      <Time>2011-11-27T14:58:02.5716+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\104.xnb</Output>
+      <Time>2011-10-28T17:30:33.1948171+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\105.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\105.xnb</Output>
-      <Time>2011-11-27T14:58:02.7826+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\105.xnb</Output>
+      <Time>2011-10-28T17:30:33.1948171+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\106.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\106.xnb</Output>
-      <Time>2011-11-27T14:58:02.8106+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\106.xnb</Output>
+      <Time>2011-10-28T17:42:01.1843485+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\107.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\107.xnb</Output>
-      <Time>2011-11-27T14:58:02.8336+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\107.xnb</Output>
+      <Time>2011-10-28T17:42:01.1843485+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\108.png</Source>
@@ -151,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\108.xnb</Output>
-      <Time>2011-11-27T14:58:02.9176+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\108.xnb</Output>
+      <Time>2011-10-28T17:42:01.1999485+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\001.png</Source>
@@ -160,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\001.xnb</Output>
-      <Time>2011-11-27T14:58:02.2366+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\001.xnb</Output>
+      <Time>2011-10-28T17:51:02.8186514+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\002.png</Source>
@@ -169,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\002.xnb</Output>
-      <Time>2011-11-27T14:58:02.4216+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\002.xnb</Output>
+      <Time>2011-10-28T17:57:58.534096+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\003.png</Source>
@@ -178,8 +178,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\003.xnb</Output>
-      <Time>2011-11-27T14:58:02.4846+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\003.xnb</Output>
+      <Time>2011-10-28T17:57:58.534096+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\109.png</Source>
@@ -187,8 +187,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\109.xnb</Output>
-      <Time>2011-11-27T14:58:02.9346+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\109.xnb</Output>
+      <Time>2011-10-28T18:09:51.0922751+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\110.png</Source>
@@ -196,8 +196,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\110.xnb</Output>
-      <Time>2011-11-27T14:58:02.4366+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\110.xnb</Output>
+      <Time>2011-10-28T20:38:28.5721543+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\111.png</Source>
@@ -205,8 +205,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\111.xnb</Output>
-      <Time>2011-11-27T14:58:02.4996+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\111.xnb</Output>
+      <Time>2011-10-28T20:38:28.5731543+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\004.png</Source>
@@ -214,8 +214,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\004.xnb</Output>
-      <Time>2011-11-27T14:58:02.5526+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\004.xnb</Output>
+      <Time>2011-10-28T23:03:08.897182+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\015.png</Source>
@@ -223,8 +223,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\015.xnb</Output>
-      <Time>2011-11-27T14:58:02.5886+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\015.xnb</Output>
+      <Time>2011-10-28T23:07:50.0629983+02:00</Time>
     </Item>
     <Item>
       <Source>img\npc\001.png</Source>
@@ -232,26 +232,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\npc\001.xnb</Output>
-      <Time>2011-11-27T14:58:01.5326+01:00</Time>
-    </Item>
-    <Item>
-      <Source>sounds\jump.wav</Source>
-      <Name>sounds\jump</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\sounds\jump.xnb</Output>
-      <Time>2011-11-27T14:58:01.2456+01:00</Time>
-    </Item>
-    <Item>
-      <Source>fonts\test1.spritefont</Source>
-      <Name>fonts\test1</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\fonts\test1.xnb</Output>
-      <Time>2011-12-13T19:56:47.2551677+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\npc\001.xnb</Output>
+      <Time>2011-10-29T16:32:22.4189949+02:00</Time>
     </Item>
     <Item>
       <Source>img\bricks\010.png</Source>
@@ -259,43 +241,70 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\010.xnb</Output>
-      <Time>2011-12-13T23:02:26.783+01:00</Time>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\010.xnb</Output>
+      <Time>2011-12-16T22:24:57.5617314+01:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\jump.wav</Source>
+      <Name>sounds\jump</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\sounds\jump.xnb</Output>
+      <Time>2011-10-28T19:37:10.8458003+02:00</Time>
+    </Item>
+    <Item>
+      <Source>fonts\test1.spritefont</Source>
+      <Name>fonts\test1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\fonts\test1.xnb</Output>
+      <Time>2011-12-16T22:24:57.1577083+01:00</Time>
+    </Item>
+    <Item>
+      <Source>img\bricks\016.png</Source>
+      <Name>img\bricks\016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\img\bricks\016.xnb</Output>
+      <Time>2011-12-16T22:35:03.1081021+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Thomas\Projekte\C#\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\beemwe\projects\Thanoma\Thanoma\v0.1\Thanoma\Thanoma\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2009-05-14T11:13:52+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2008-10-10T17:42:32+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2009-05-14T11:13:52+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2008-10-10T17:43:28+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2009-05-14T11:13:52+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2008-10-10T17:43:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2009-05-14T11:13:52+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2008-10-10T17:48:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2009-05-14T11:13:52+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2008-10-10T17:48:50+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2011-10-23T17:48:08.435+02:00</Value>
+        <Value>2011-10-11T18:38:58.1838435+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
